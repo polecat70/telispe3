@@ -1,0 +1,291 @@
+2018-09-12 07:23:17	192.168.9.177	{"action":"LOGIN","uid":"","pwd":""}
+2018-09-12 07:23:17	192.168.9.177	**Manca Login
+2018-09-12 07:23:17	192.168.9.177	**ERROR:Manca Login
+2018-09-12 07:23:21	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 07:26:55	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-12 07:54:59	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-12 07:55:03	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-12 07:55:03	::1	**ERROR:Tessera non presente in Db
+2018-09-12 08:31:46	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 08:31:57	192.168.9.177	{"action":"SAVE_WIN_POS","userId":"1","data":"[{\"id\":\"dettWin\",\"l\":-2,\"t\":0,\"w\":791,\"h\":728}]"}
+2018-09-12 08:32:00	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 08:32:12	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 08:32:18	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 08:41:10	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"14"}
+2018-09-12 08:41:21	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-12 08:43:11	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 08:43:26	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"5"}
+2018-09-12 08:43:42	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 08:44:29	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-12 08:52:58	192.168.9.177	{"action":"LOGIN","uid":"","pwd":""}
+2018-09-12 08:52:58	192.168.9.177	**Manca Login
+2018-09-12 08:52:58	192.168.9.177	**ERROR:Manca Login
+2018-09-12 08:53:01	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 08:54:08	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 09:08:03	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 09:08:08	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 09:08:25	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:08:32	::1	{"action":"CHECK_CARD","pin":"111166","realpin":"undefined"}
+2018-09-12 09:08:32	::1	**ERROR:Tessera non presente in Db
+2018-09-12 09:08:35	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:08:50	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 09:08:50	::1	**ERROR:Tessera non associata a nessuno
+2018-09-12 09:08:57	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:09:07	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 09:09:27	192.168.9.177	{"action":"FREE_CARD","serial":"99124"}
+2018-09-12 09:09:48	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:10:02	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 09:10:02	::1	**ERROR:Tessera non associata a nessuno
+2018-09-12 09:10:19	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:10:33	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 09:10:33	::1	**ERROR:Tessera non associata a nessuno
+2018-09-12 09:10:43	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 09:10:58	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 09:12:59	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 09:13:06	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:13:21	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 09:13:24	::1	{"action":"SAY_BAL_IT","amt":"32.97"}
+2018-09-12 09:13:42	::1	{"action":"CALL_REQUEST","uuid":"bb1f9947-6079-4308-900c-9d81532a7d35","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435"}
+2018-09-12 09:13:42	::1	{"uuid":"bb1f9947-6079-4308-900c-9d81532a7d35","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435"}
+2018-09-12 09:13:42	::1	{"uuid":"bb1f9947-6079-4308-900c-9d81532a7d35","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435"}
+2018-09-12 09:13:42	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 10:43.42'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3383407435'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 09:13:42	::1	No possibility to recover
+2018-09-12 09:13:42	::1	{"uuid":"bb1f9947-6079-4308-900c-9d81532a7d35","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435","sessDTTM":"2018-09-12 11:13:42","wlId":"183","callTip":"N","descr":"Moglie","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.97,"secsAvail":20956,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-12 09:15:37	::1	{"action":"CALL_END","callId":"210","totSecs":"104","talkSecs":"104","dialDTTM":"2018-09-12 11:13.47","ansDTTM":"2018-09-12 11:13.53","endDTTM":"2018-09-12 11:15.37","cause":"NORMAL_CLEARING"}
+2018-09-12 09:16:13	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:16:16	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-12 09:16:16	::1	**ERROR:Tessera non presente in Db
+2018-09-12 09:21:29	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:21:36	::1	{"action":"CHECK_CARD","pin":"c","realpin":"undefined"}
+2018-09-12 09:21:36	::1	**ERROR:Tessera non presente in Db
+2018-09-12 09:22:06	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-12 09:22:41	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-12 09:22:47	192.168.9.177	{"action":"DUP_NUM_OK","dettId":"15","wlId":"202","num":"3932188108","tip":"O"}
+2018-09-12 09:22:56	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 09:23:10	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 09:23:13	::1	{"action":"SAY_BAL_IT","amt":"32.81"}
+2018-09-12 09:23:30	::1	{"action":"CALL_REQUEST","uuid":"a707c86d-b22e-4d17-a29e-eee5657955f0","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 09:23:30	::1	{"uuid":"a707c86d-b22e-4d17-a29e-eee5657955f0","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 09:23:30	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 10:53.30'
+					AND c.callTip = 'O'
+					AND c.dialedNum = '3932188108'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 09:23:30	::1	No possibility to recover
+2018-09-12 09:23:30	::1	{"uuid":"a707c86d-b22e-4d17-a29e-eee5657955f0","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108","sessDTTM":"2018-09-12 11:23:30","wlId":"202","callTip":"O","descr":"Cell Adriano","callsQta":"2","callsFreq":"D","expire":"3000-12-31","duration":"5","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.81,"secsAvail":20854,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":300}
+2018-09-12 09:23:30	::1	{"action":"GET_FREE_OP"}
+2018-09-12 10:54:07	93.48.188.242	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 10:54:22	93.48.188.242	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 10:54:25	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 10:54:36	93.48.188.242	{"action":"FREE_CARD","serial":"100003"}
+2018-09-12 11:02:34	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 11:09:04	192.168.9.177	{"action":"FREE_CARD","serial":"99124"}
+2018-09-12 11:09:16	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 11:09:25	192.168.9.177	{"action":"SAVE_WIN_POS","userId":"1","data":"[{\"id\":\"dettWin\",\"l\":-2,\"t\":0,\"w\":791,\"h\":728}]"}
+2018-09-12 11:09:31	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 11:09:33	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 11:09:36	93.48.188.242	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 11:09:38	93.48.188.242	{"action":"GET_DETT_CREDIT","dettId":"1"}
+2018-09-12 11:09:57	192.168.9.177	{"action":"FREE_CARD","serial":"100003"}
+2018-09-12 11:14:25	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:14:39	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:14:42	::1	{"action":"SAY_BAL_IT","amt":"32.81"}
+2018-09-12 11:14:59	::1	{"action":"CALL_REQUEST","uuid":"5843e309-1ac4-47d8-820d-85095c0d6877","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 11:14:59	::1	{"uuid":"5843e309-1ac4-47d8-820d-85095c0d6877","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 11:14:59	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 12:44.59'
+					AND c.callTip = 'O'
+					AND c.dialedNum = '3932188108'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 11:14:59	::1	No possibility to recover
+2018-09-12 11:14:59	::1	{"uuid":"5843e309-1ac4-47d8-820d-85095c0d6877","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108","sessDTTM":"2018-09-12 13:14:59","wlId":"202","callTip":"O","descr":"Cell Adriano","callsQta":"2","callsFreq":"D","expire":"3000-12-31","duration":"5","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.81,"secsAvail":20854,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":300}
+2018-09-12 11:15:00	::1	{"action":"GET_FREE_OP"}
+2018-09-12 11:19:55	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:20:03	::1	{"action":"CHECK_CARD","pin":"32b","realpin":"undefined"}
+2018-09-12 11:20:03	::1	**ERROR:Tessera non presente in Db
+2018-09-12 11:20:11	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:20:26	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:20:28	::1	{"action":"SAY_BAL_IT","amt":"32.81"}
+2018-09-12 11:20:45	::1	{"action":"CALL_REQUEST","uuid":"068bb563-343e-41cd-9ac9-4cd8e53c8182","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 11:20:45	::1	{"uuid":"068bb563-343e-41cd-9ac9-4cd8e53c8182","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 11:20:45	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 12:50.45'
+					AND c.callTip = 'O'
+					AND c.dialedNum = '3932188108'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 11:20:45	::1	No possibility to recover
+2018-09-12 11:20:45	::1	{"uuid":"068bb563-343e-41cd-9ac9-4cd8e53c8182","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108","sessDTTM":"2018-09-12 13:20:45","wlId":"202","callTip":"O","descr":"Cell Adriano","callsQta":"2","callsFreq":"D","expire":"3000-12-31","duration":"5","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.81,"secsAvail":20854,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":300}
+2018-09-12 11:20:45	::1	{"action":"GET_FREE_OP"}
+2018-09-12 11:28:53	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:29:08	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:29:10	::1	{"action":"SAY_BAL_IT","amt":"32.81"}
+2018-09-12 11:29:27	::1	{"action":"CALL_REQUEST","uuid":"8ba33237-859c-4426-92cb-0ae77c6524b6","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 11:29:27	::1	{"uuid":"8ba33237-859c-4426-92cb-0ae77c6524b6","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 11:29:27	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 12:59.27'
+					AND c.callTip = 'O'
+					AND c.dialedNum = '3932188108'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 11:29:27	::1	No possibility to recover
+2018-09-12 11:29:27	::1	{"uuid":"8ba33237-859c-4426-92cb-0ae77c6524b6","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108","sessDTTM":"2018-09-12 13:29:27","wlId":"202","callTip":"O","descr":"Cell Adriano","callsQta":"2","callsFreq":"D","expire":"3000-12-31","duration":"5","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.81,"secsAvail":20854,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":300}
+2018-09-12 11:29:27	::1	{"action":"GET_FREE_OP"}
+2018-09-12 11:36:58	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:37:12	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:37:15	::1	{"action":"SAY_BAL_IT","amt":"32.81"}
+2018-09-12 11:37:33	::1	{"action":"CALL_REQUEST","uuid":"cc0725e7-62ef-4cdd-b949-0146352d6380","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435"}
+2018-09-12 11:37:33	::1	{"uuid":"cc0725e7-62ef-4cdd-b949-0146352d6380","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435"}
+2018-09-12 11:37:33	::1	{"uuid":"cc0725e7-62ef-4cdd-b949-0146352d6380","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435"}
+2018-09-12 11:37:33	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 13:07.33'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3383407435'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 11:37:33	::1	No possibility to recover
+2018-09-12 11:37:33	::1	{"uuid":"cc0725e7-62ef-4cdd-b949-0146352d6380","ext":"301","cardId":"15","dettId":"15","dialedNum":"3383407435","sessDTTM":"2018-09-12 13:37:33","wlId":"183","callTip":"N","descr":"Moglie","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.81,"secsAvail":20854,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-12 11:38:08	::1	{"action":"CALL_END","callId":"215","totSecs":"22","talkSecs":"22","dialDTTM":"2018-09-12 13:37.39","ansDTTM":"2018-09-12 13:37.46","endDTTM":"2018-09-12 13:38.08","cause":"NORMAL_CLEARING"}
+2018-09-12 11:38:27	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:38:31	93.48.188.242	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 11:38:41	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:38:47	::1	{"action":"SAY_BAL_IT","amt":"9.36"}
+2018-09-12 11:38:54	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-12 11:39:09	192.168.9.177	{"action":"DUP_NUM_OK","dettId":"15","wlId":"204","num":"3332094333","tip":"N"}
+2018-09-12 11:39:27	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:39:41	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:39:46	::1	{"action":"SAY_BAL_IT","amt":"9.36"}
+2018-09-12 11:39:50	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:39:54	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-12 11:39:54	::1	**ERROR:Tessera non presente in Db
+2018-09-12 11:39:59	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:40:13	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:40:18	::1	{"action":"SAY_BAL_IT","amt":"9.36"}
+2018-09-12 11:40:32	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 11:40:42	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:40:56	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:41:02	::1	{"action":"SAY_BAL_IT","amt":"9.36"}
+2018-09-12 11:43:10	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:43:24	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:43:30	::1	{"action":"SAY_BAL_IT","amt":"9.36"}
+2018-09-12 11:44:00	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"1"}
+2018-09-12 11:47:52	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:48:07	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:48:12	::1	{"action":"SAY_BAL_IT","amt":"9.36"}
+2018-09-12 11:48:41	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"1"}
+2018-09-12 11:48:49	192.168.9.177	{"action":"FREE_CARD","serial":"100003"}
+2018-09-12 11:48:55	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 11:49:06	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 11:49:10	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:49:24	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:49:27	::1	{"action":"SAY_BAL_IT","amt":"32.76"}
+2018-09-12 11:49:48	::1	{"action":"CALL_REQUEST","uuid":"d12d3a4c-6d9f-41e7-ab11-c3488d2c8da4","ext":"301","cardId":"15","dettId":"15","dialedNum":"3332094333"}
+2018-09-12 11:49:48	::1	{"uuid":"d12d3a4c-6d9f-41e7-ab11-c3488d2c8da4","ext":"301","cardId":"15","dettId":"15","dialedNum":"3332094333"}
+2018-09-12 11:49:48	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 12:49.48'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3332094333'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 11:49:48	::1	No possibility to recover
+2018-09-12 11:49:48	::1	{"uuid":"d12d3a4c-6d9f-41e7-ab11-c3488d2c8da4","ext":"301","cardId":"15","dettId":"15","dialedNum":"3332094333","sessDTTM":"2018-09-12 13:49:48","wlId":"204","callTip":"N","descr":"facco","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.76,"secsAvail":20822,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-12 11:50:53	::1	{"action":"CALL_END","callId":"216","totSecs":"38","talkSecs":"38","dialDTTM":"2018-09-12 13:49.53","ansDTTM":"2018-09-12 13:50.15","endDTTM":"2018-09-12 13:50.53","cause":"NORMAL_CLEARING"}
+2018-09-12 11:51:10	93.48.188.242	{"action":"GET_CONST","constName":"durations"}
+2018-09-12 11:51:28	93.48.188.242	{"action":"DUP_NUM_OK","dettId":"15","wlId":"0","num":"0656569224","tip":"N"}
+2018-09-12 11:51:28	93.48.188.242	**Esiste gia' una chiamata di questo tipo per questo numero!
+2018-09-12 11:51:28	93.48.188.242	**ERROR:Esiste gia' una chiamata di questo tipo per questo numero!
+2018-09-12 11:51:54	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 11:52:08	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 11:52:12	::1	{"action":"SAY_BAL_IT","amt":"32.7"}
+2018-09-12 11:52:30	::1	{"action":"CALL_REQUEST","uuid":"3b5e425b-2a12-425c-aded-e350ec1ef91d","ext":"301","cardId":"15","dettId":"15","dialedNum":"0656569224"}
+2018-09-12 11:52:30	::1	{"uuid":"3b5e425b-2a12-425c-aded-e350ec1ef91d","ext":"301","cardId":"15","dettId":"15","dialedNum":"0656569224"}
+2018-09-12 11:52:30	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 13:22.30'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '0656569224'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 11:52:30	::1	No possibility to recover
+2018-09-12 11:52:30	::1	{"uuid":"3b5e425b-2a12-425c-aded-e350ec1ef91d","ext":"301","cardId":"15","dettId":"15","dialedNum":"0656569224","sessDTTM":"2018-09-12 13:52:30","wlId":"200","callTip":"N","descr":"facco","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.01","pfxId":"1","tznId":"11","secsGrace":0,"rateType":"N","rate":0.0189,"drpCharge":0,"creditInit":32.7,"secsAvail":103810,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-12 11:53:06	::1	{"action":"CALL_END","callId":"217","totSecs":"28","talkSecs":"28","dialDTTM":"2018-09-12 13:52.37","ansDTTM":"2018-09-12 13:52.38","endDTTM":"2018-09-12 13:53.06","cause":"NORMAL_CLEARING"}
+2018-09-12 12:32:34	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"14"}
+2018-09-12 12:32:43	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 12:32:57	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-12 12:33:11	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-12 12:33:14	::1	{"action":"SAY_BAL_IT","amt":"32.69"}
+2018-09-12 12:33:31	::1	{"action":"CALL_REQUEST","uuid":"ca128289-87aa-497b-af1f-3893a4a46254","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 12:33:31	::1	{"uuid":"ca128289-87aa-497b-af1f-3893a4a46254","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108"}
+2018-09-12 12:33:31	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-12 14:03.31'
+					AND c.callTip = 'O'
+					AND c.dialedNum = '3932188108'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-12 12:33:31	::1	No possibility to recover
+2018-09-12 12:33:31	::1	{"uuid":"ca128289-87aa-497b-af1f-3893a4a46254","ext":"301","cardId":"15","dettId":"15","dialedNum":"3932188108","sessDTTM":"2018-09-12 14:33:31","wlId":"202","callTip":"O","descr":"Cell Adriano","callsQta":"2","callsFreq":"D","expire":"3000-12-31","duration":"5","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.69,"secsAvail":20778,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":300}
+2018-09-12 12:33:31	::1	{"action":"GET_FREE_OP"}
+2018-09-12 13:13:25	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 13:13:28	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-12 13:17:12	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-12 13:17:15	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}

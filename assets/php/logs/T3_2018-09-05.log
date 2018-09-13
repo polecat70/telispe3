@@ -1,0 +1,334 @@
+2018-09-05 15:08:07	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 15:08:22	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 15:08:25	::1	{"action":"SAY_BAL_IT","amt":"7"}
+2018-09-05 15:08:41	::1	{"action":"CALL_REQUEST","uuid":"e9450405-0414-453c-ae48-93a4b3b04c1f","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 15:08:41	::1	{"uuid":"e9450405-0414-453c-ae48-93a4b3b04c1f","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 15:08:41	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 16:28.41'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:08:41	::1	No possibility to recover
+2018-09-05 15:08:41	::1	**ERROR:Reached limit to calls to this number
+2018-09-05 15:34:04	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 15:34:10	192.168.9.177	{"action":"DUP_NUM_OK","dettId":"13","wlId":"158","num":"3480623535","tip":"N"}
+2018-09-05 15:35:21	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:35:35	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 15:35:38	::1	{"action":"SAY_BAL_IT","amt":"7"}
+2018-09-05 15:35:56	::1	{"action":"CALL_REQUEST","uuid":"ce4f431a-1128-4f08-a012-b33d74a9e8e4","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:35:56	::1	{"uuid":"ce4f431a-1128-4f08-a012-b33d74a9e8e4","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:35:56	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:05.56'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:35:56	::1	No possibility to recover
+2018-09-05 15:35:56	::1	Array
+2018-09-05 15:36:03	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:36:17	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 15:36:21	::1	{"action":"SAY_BAL_IT","amt":"7"}
+2018-09-05 15:36:36	::1	{"action":"CALL_REQUEST","uuid":"37328638-4f12-46f0-b1b0-672395b13efc","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:36:36	::1	{"uuid":"37328638-4f12-46f0-b1b0-672395b13efc","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:36:36	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:06.36'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:36:36	::1	No possibility to recover
+2018-09-05 15:36:37	::1	Array
+2018-09-05 15:36:50	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 15:36:57	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 15:37:14	192.168.9.177	{"action":"DUP_NUM_OK","dettId":"13","wlId":"190","num":"0662288747","tip":"N"}
+2018-09-05 15:37:32	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:37:46	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 15:37:49	::1	{"action":"SAY_BAL_IT","amt":"7"}
+2018-09-05 15:38:02	::1	{"action":"CALL_REQUEST","uuid":"d6e6e0f2-b266-4a4c-8f7f-5b2725c82bbd","ext":"302","cardId":"13","dettId":"13","dialedNum":"06888"}
+2018-09-05 15:38:03	::1	**ERROR:number 06888 not in whitelist for dett 13
+2018-09-05 15:38:05	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:38:10	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 15:38:10	::1	**ERROR:Tessera non presente in Db
+2018-09-05 15:38:14	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:38:28	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 15:38:31	::1	{"action":"SAY_BAL_IT","amt":"7"}
+2018-09-05 15:38:50	::1	{"action":"CALL_REQUEST","uuid":"9682171d-3058-4f55-926c-506cec3aa7eb","ext":"302","cardId":"13","dettId":"13","dialedNum":"0662288747"}
+2018-09-05 15:38:50	::1	{"uuid":"9682171d-3058-4f55-926c-506cec3aa7eb","ext":"302","cardId":"13","dettId":"13","dialedNum":"0662288747"}
+2018-09-05 15:38:50	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:08.50'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '0662288747'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:38:50	::1	No possibility to recover
+2018-09-05 15:38:50	::1	Array
+2018-09-05 15:44:31	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:44:45	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 15:44:48	::1	{"action":"SAY_BAL_IT","amt":"7"}
+2018-09-05 15:45:02	::1	{"action":"CALL_REQUEST","uuid":"b8cfd5a7-1b65-4a77-b6a0-1883963810bb","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:45:02	::1	{"uuid":"b8cfd5a7-1b65-4a77-b6a0-1883963810bb","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:45:02	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:15.02'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:45:02	::1	No possibility to recover
+2018-09-05 15:45:02	::1	Array
+2018-09-05 15:45:06	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:51:58	192.168.1.234	{"action":"CALL_REQUEST","uuid":"b8cfd5a7-1b65-4a77-b6a0-1883963810bb","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:51:58	192.168.1.234	{"uuid":"b8cfd5a7-1b65-4a77-b6a0-1883963810bb","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:51:58	192.168.1.234	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:21.58'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:51:58	192.168.1.234	No possibility to recover
+2018-09-05 15:51:58	192.168.1.234	Array
+2018-09-05 15:56:43	192.168.1.234	{"action":"CALL_REQUEST","uuid":"b8cfd5a7-1b65-4a77-b6a0-1883963810bb","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:56:43	192.168.1.234	{"uuid":"b8cfd5a7-1b65-4a77-b6a0-1883963810bb","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:56:43	192.168.1.234	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:26.43'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:56:43	192.168.1.234	No possibility to recover
+2018-09-05 15:56:43	192.168.1.234	{"uuid":"b8cfd5a7-1b65-4a77-b6a0-1883963810bb","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535","sessDTTM":"2018-09-05 17:56:43","wlId":"158","callTip":"N","descr":"Ufficio","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":7,"secsAvail":4449,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-05 15:57:20	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 15:57:34	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 15:57:37	::1	{"action":"SAY_BAL_IT","amt":"7"}
+2018-09-05 15:57:51	::1	{"action":"CALL_REQUEST","uuid":"01e930f1-59cc-471a-8f36-c06dddc70ea2","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:57:51	::1	{"uuid":"01e930f1-59cc-471a-8f36-c06dddc70ea2","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 15:57:51	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:27.51'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 15:57:51	::1	No possibility to recover
+2018-09-05 15:57:51	::1	{"uuid":"01e930f1-59cc-471a-8f36-c06dddc70ea2","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535","sessDTTM":"2018-09-05 17:57:51","wlId":"158","callTip":"N","descr":"Ufficio","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":7,"secsAvail":4449,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-05 16:04:06	::1	{"action":"CALL_END","callId":"174","totSecs":"360","talkSecs":"360","dialDTTM":"2018-09-05 17:57.57","ansDTTM":"2018-09-05 17:58.06","endDTTM":"2018-09-05 18:04.06","cause":"NORMAL_CLEARING"}
+2018-09-05 16:04:43	192.168.9.113	{"action":"LOGIN","uid":"franco","pwd":"franco"}
+2018-09-05 16:04:50	192.168.9.113	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-05 16:05:41	192.168.9.113	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 16:07:20	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 16:07:34	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 16:07:38	::1	{"action":"SAY_BAL_IT","amt":"6.43"}
+2018-09-05 16:07:54	::1	{"action":"CALL_REQUEST","uuid":"1ed99267-6cec-4470-a442-9bd55b264385","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 16:07:54	::1	{"uuid":"1ed99267-6cec-4470-a442-9bd55b264385","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 16:07:54	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:37.54'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 16:07:54	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 360
+            [attempts] => 1
+            [recId] => 174
+        )
+
+)
+
+2018-09-05 16:07:54	::1	{"uuid":"1ed99267-6cec-4470-a442-9bd55b264385","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535","sessDTTM":"2018-09-05 18:07:54","wlId":"158","callTip":"N","descr":"Ufficio","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","retryCallId":"174","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":6.43,"secsAvail":4087,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":240}
+2018-09-05 16:09:07	::1	{"action":"CALL_END","callId":"175","totSecs":"61","talkSecs":"61","dialDTTM":"2018-09-05 18:07.59","ansDTTM":"2018-09-05 18:08.06","endDTTM":"2018-09-05 18:09.07","cause":"NORMAL_CLEARING"}
+2018-09-05 16:17:50	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 16:17:59	192.168.9.113	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-05 16:18:04	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 16:18:07	::1	{"action":"SAY_BAL_IT","amt":"6.33"}
+2018-09-05 16:18:22	::1	{"action":"CALL_REQUEST","uuid":"75d91402-b003-40ea-b082-5ac9aa6ebcba","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 16:18:22	::1	{"uuid":"75d91402-b003-40ea-b082-5ac9aa6ebcba","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 16:18:22	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 17:48.22'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 16:18:22	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 421
+            [attempts] => 2
+            [recId] => 174
+        )
+
+)
+
+2018-09-05 16:18:22	::1	{"uuid":"75d91402-b003-40ea-b082-5ac9aa6ebcba","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535","sessDTTM":"2018-09-05 18:18:22","wlId":"158","callTip":"N","descr":"Ufficio","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","retryCallId":"174","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":6.33,"secsAvail":4023,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":179}
+2018-09-05 16:19:35	::1	{"action":"CALL_END","callId":"176","totSecs":"61","talkSecs":"61","dialDTTM":"2018-09-05 18:18.26","ansDTTM":"2018-09-05 18:18.34","endDTTM":"2018-09-05 18:19.35","cause":"NORMAL_CLEARING"}
+2018-09-05 16:29:45	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 16:29:59	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 16:30:03	::1	{"action":"SAY_BAL_IT","amt":"6.23"}
+2018-09-05 16:30:18	::1	{"action":"CALL_REQUEST","uuid":"1e8f1728-2d85-49b6-af55-5ca9d27b9777","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 16:30:18	::1	{"uuid":"1e8f1728-2d85-49b6-af55-5ca9d27b9777","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 16:30:18	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 18:00.18'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 16:30:18	::1	No possibility to recover
+2018-09-05 16:30:18	::1	{"uuid":"1e8f1728-2d85-49b6-af55-5ca9d27b9777","ext":"302","cardId":"13","dettId":"13","dialedNum":"3480623535","sessDTTM":"2018-09-05 18:30:18","wlId":"158","callTip":"N","descr":"Ufficio","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"L","rate":0.0944,"drpCharge":0,"creditInit":6.23,"secsAvail":3960,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-05 16:31:33	::1	{"action":"CALL_END","callId":"177","totSecs":"59","talkSecs":"59","dialDTTM":"2018-09-05 18:30.24","ansDTTM":"2018-09-05 18:30.33","endDTTM":"2018-09-05 18:31.32","cause":"NORMAL_CLEARING"}
+2018-09-05 16:38:34	192.168.9.113	{"action":"LOGIN","uid":"franco","pwd":"franco"}
+2018-09-05 16:38:43	192.168.9.113	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-05 16:38:47	192.168.9.113	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 16:38:59	192.168.9.113	{"action":"LOGIN","uid":"franco","pwd":"franco"}
+2018-09-05 16:39:03	192.168.9.113	{"action":"LOGIN","uid":"franco","pwd":"franco"}
+2018-09-05 16:39:09	192.168.9.113	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-05 16:39:13	192.168.9.113	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 16:39:20	192.168.9.113	{"action":"DUP_NUM_OK","dettId":"13","wlId":"158","num":"3480623535","tip":"N"}
+2018-09-05 16:39:50	192.168.9.113	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 16:40:11	192.168.9.113	{"action":"DUP_NUM_OK","dettId":"13","wlId":"0","num":"069087651","tip":"N"}
+2018-09-05 16:40:41	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 16:40:55	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 16:40:58	::1	{"action":"SAY_BAL_IT","amt":"6.14"}
+2018-09-05 16:41:14	::1	{"action":"CALL_REQUEST","uuid":"1a42a39f-28d6-4042-a5d4-3ed921e3b938","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651"}
+2018-09-05 16:41:14	::1	{"uuid":"1a42a39f-28d6-4042-a5d4-3ed921e3b938","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651"}
+2018-09-05 16:41:14	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 18:31.14'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '069087651'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 16:41:14	::1	No possibility to recover
+2018-09-05 16:41:14	::1	{"uuid":"1a42a39f-28d6-4042-a5d4-3ed921e3b938","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651","sessDTTM":"2018-09-05 18:41:14","wlId":"201","callTip":"N","descr":"Ufficio Francesco","callsQta":"1","callsFreq":"D","expire":"3000-12-31","duration":"2","record":"1","globQta":"10","globFreq":"D","minCharge":"0.01","pfxId":"1","tznId":"11","secsGrace":0,"rateType":"L","rate":0.0189,"drpCharge":0,"creditInit":6.14,"secsAvail":19492,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":120}
+2018-09-05 16:42:22	::1	{"action":"CALL_END","callId":"178","totSecs":"56","talkSecs":"56","dialDTTM":"2018-09-05 18:41.18","ansDTTM":"2018-09-05 18:41.26","endDTTM":"2018-09-05 18:42.22","cause":"NORMAL_CLEARING"}
+2018-09-05 16:42:24	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 16:43:52	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 16:44:07	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 16:44:10	::1	{"action":"SAY_BAL_IT","amt":"6.12"}
+2018-09-05 16:44:25	::1	{"action":"CALL_REQUEST","uuid":"cddf6c41-68e4-4a83-94e9-6fc915b57009","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651"}
+2018-09-05 16:44:25	::1	{"uuid":"cddf6c41-68e4-4a83-94e9-6fc915b57009","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651"}
+2018-09-05 16:44:25	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 18:34.25'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '069087651'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 16:44:25	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 56
+            [attempts] => 1
+            [recId] => 178
+        )
+
+)
+
+2018-09-05 16:44:25	::1	{"uuid":"cddf6c41-68e4-4a83-94e9-6fc915b57009","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651","sessDTTM":"2018-09-05 18:44:25","wlId":"201","callTip":"N","descr":"Ufficio Francesco","callsQta":"1","callsFreq":"D","expire":"3000-12-31","duration":"2","record":"1","globQta":"10","globFreq":"D","retryCallId":"178","minCharge":"0.01","pfxId":"1","tznId":"11","secsGrace":0,"rateType":"L","rate":0.0189,"drpCharge":0,"creditInit":6.12,"secsAvail":19429,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":64}
+2018-09-05 16:45:09	::1	{"action":"CALL_END","callId":"179","totSecs":"37","talkSecs":"37","dialDTTM":"2018-09-05 18:44.27","ansDTTM":"2018-09-05 18:44.32","endDTTM":"2018-09-05 18:45.09","cause":"NORMAL_CLEARING"}
+2018-09-05 16:49:30	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 16:49:45	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 16:49:48	::1	{"action":"SAY_BAL_IT","amt":"6.11"}
+2018-09-05 16:50:02	::1	{"action":"CALL_REQUEST","uuid":"80402b9c-3e9c-4b4b-aa99-7db736b58173","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651"}
+2018-09-05 16:50:02	::1	{"uuid":"80402b9c-3e9c-4b4b-aa99-7db736b58173","ext":"302","cardId":"13","dettId":"13","dialedNum":"069087651"}
+2018-09-05 16:50:02	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 18:40.02'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '069087651'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 16:50:02	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 93
+            [attempts] => 2
+            [recId] => 178
+        )
+
+)
+
+2018-09-05 16:50:02	::1	**ERROR:Reached limit to calls to this number

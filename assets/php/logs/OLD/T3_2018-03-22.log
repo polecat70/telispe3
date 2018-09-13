@@ -1,0 +1,8 @@
+2018-03-22 17:27:51	192.168.0.101	**dettId missing!
+2018-03-22 17:27:51	192.168.0.101	**ERROR:dettId missing!
+2018-03-22 18:01:25	192.168.0.101	**dettId missing!
+2018-03-22 18:01:25	192.168.0.101	**ERROR:dettId missing!
+2018-03-22 18:03:38	192.168.0.101	**dettId missing!
+2018-03-22 18:03:42	192.168.0.101	**ERROR:dettId missing!
+2018-03-22 18:06:49	192.168.0.101	**Unknown column 'callsFreq' in 'field list'
+2018-03-22 18:06:49	192.168.0.101	**ERROR:Unknown column 'callsFreq' in 'field list'

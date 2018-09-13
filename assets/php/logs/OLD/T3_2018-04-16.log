@@ -1,0 +1,48 @@
+2018-04-16 16:16:50	::1	**dialedNum missing
+2018-04-16 16:16:50	::1	**ERROR:dialedNum missing
+2018-04-16 16:18:51	::1	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+()
+VALUES
+()' at line 1
+2018-04-16 16:21:38	::1	**ERROR:Tessera non presente in Db
+2018-04-16 16:21:55	::1	**dialedNum missing
+2018-04-16 16:22:00	::1	**ERROR:dialedNum missing
+2018-04-16 16:27:34	192.168.0.101	**ERROR:Action 'NEW_LEAD_EMAIL' sconosciuta
+2018-04-16 16:27:57	192.168.0.101	**uuid missing
+2018-04-16 16:27:57	192.168.0.101	**ERROR:uuid missing
+2018-04-16 16:28:34	192.168.0.101	**cardId missing
+2018-04-16 16:28:34	192.168.0.101	**ERROR:cardId missing
+2018-04-16 16:32:23	192.168.0.101	**dialedNum missing
+2018-04-16 16:32:23	192.168.0.101	**ERROR:dialedNum missing
+2018-04-16 16:33:29	192.168.0.101	**dialedNum missing
+2018-04-16 16:33:29	192.168.0.101	**ERROR:dialedNum missing
+2018-04-16 16:33:40	192.168.0.101	**dialedNum missing
+2018-04-16 16:33:43	192.168.0.101	**ERROR:dialedNum missing
+2018-04-16 16:36:58	192.168.0.101	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+(0)
+VALUES
+('')' at line 1
+2018-04-16 16:37:18	192.168.0.101	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+(0)
+VALUES
+('')' at line 1
+2018-04-16 16:37:38	192.168.0.101	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+(0)
+VALUES
+('')' at line 1
+2018-04-16 16:39:14	192.168.0.101	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+(0)
+VALUES
+('')' at line 1
+2018-04-16 16:39:37	192.168.0.101	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+(uuid, ext, dettId, dialedNum, cardId, callTip, pfxId, tznId, secsGrace, r' at line 1
+2018-04-16 16:40:02	192.168.0.101	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+(uuid, ext, dettId, dialedNum, cardId, callTip, pfxId, tznId, secsGrace, r' at line 1
+2018-04-16 16:40:45	192.168.0.101	**ERROR:Inserting Call:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'call 
+(uuid, ext, dettId, dialedNum, cardId, callTip, pfxId, tznId, secsGrace, r' at line 1
+2018-04-16 16:45:13	192.168.0.101	**ERROR:Numero 999999999 non in lista per dett 1
+2018-04-16 16:48:04	192.168.0.101	**ERROR:Inserting Call:Unknown column 'action' in 'field list'
+2018-04-16 16:48:31	192.168.0.101	**ERROR:Numero 999999999 non in lista per dett 1
+2018-04-16 16:48:53	192.168.0.101	**ERROR:Numero 069087987987 non in lista per dett 1
+2018-04-16 17:49:09	192.168.0.101	**ERROR:Numero 3332094333 non in lista per dett 1
+2018-04-16 18:34:38	192.168.0.101	**ERROR:Numero 3332094333 non in lista per dett 2

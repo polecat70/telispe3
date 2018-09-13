@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script>
+
+function init() {
+    var aud = document.getElementById("aud");
+    // <source src="play.php?filename=./rec/1726ac27-cbf8-43db-aa56-1f7c8d603e94.wav" type="audio/mp3" />
+    var audiofile = "play.php?filename=./rec/0dbfd789-983d-4d8d-9dd6-de1f8b2fd21b.wav";
+    
+    aud.src =  audiofile;
+    
+    aud.addEventListener('loadedmetadata', function() {
+        // alert(aud.duration);
+        aud.currentTime = aud.duration - 0.5;
+        aud.play(); 
+    });    
+    
+}
+</script>
+
+
+</head>
+<body onload="init();">
+<audio id="aud" controls="controls" preload="none"></audio>
+
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+2018-09-05 07:50:47	::1	**ERROR:Tessera non presente in Db
+2018-09-05 07:51:01	::1	**ERROR:Tessera non presente in Db
+2018-09-05 07:54:52	::1	**ERROR:Tessera non presente in Db
+2018-09-05 07:55:01	::1	**ERROR:Tessera non presente in Db
+2018-09-05 07:55:31	::1	**dialedNum missing
+2018-09-05 07:55:31	::1	**ERROR:dialedNum missing
+2018-09-05 07:56:03	::1	**dialedNum missing
+2018-09-05 07:56:03	::1	**ERROR:dialedNum missing
+2018-09-05 09:26:57	::1	**ERROR:number 348062353 not in whitelist for dett 13
+2018-09-05 09:27:41	::1	**ERROR:Reached limit to calls to this number
+2018-09-05 13:58:39	::1	**dialedNum missing
+2018-09-05 13:58:39	::1	**ERROR:dialedNum missing
+2018-09-05 13:59:31	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 15:39.31'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 13:59:31	::1	**ERROR:Reached limit to calls to this number
+2018-09-05 14:02:04	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:02:18	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:02:22	::1	{"action":"SAY_BAL_IT","amt":"7.1"}
+2018-09-05 14:02:38	::1	{"action":"CALL_REQUEST","uuid":"62d92cb6-2d60-4356-8ae5-9d3361f5b733","ext":"301","cardId":"13","dettId":"13","dialedNum":"3480623535"}
+2018-09-05 14:02:38	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 15:42.38'
+					AND c.dialedNum = '3480623535'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:02:38	::1	**ERROR:Reached limit to calls to this number
+2018-09-05 14:12:23	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 14:12:42	192.168.9.177	{"action":"DUP_NUM_OK","dettId":"13","wlId":"196","num":"0690289704","tip":"X"}
+2018-09-05 14:12:51	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:13:06	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:13:09	::1	{"action":"SAY_BAL_IT","amt":"7.1"}
+2018-09-05 14:13:26	::1	{"action":"CALL_REQUEST","uuid":"a90e292a-77eb-4594-b395-c7044a2948ab","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 14:13:26	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 15:33.26'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:13:26	::1	No possibility to recover
+2018-09-05 14:13:26	::1	**ERROR:Reached limit to calls to this number
+2018-09-05 14:13:51	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 14:14:04	192.168.9.177	{"action":"DUP_NUM_OK","dettId":"13","wlId":"196","num":"0690289704","tip":"X"}
+2018-09-05 14:14:23	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:14:35	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:14:38	::1	{"action":"SAY_BAL_IT","amt":"7.1"}
+2018-09-05 14:14:55	::1	{"action":"CALL_REQUEST","uuid":"9994a362-89b4-4090-9754-5b1b08d80282","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 14:14:55	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 15:34.55'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:14:55	::1	No possibility to recover
+2018-09-05 14:14:55	::1	**ERROR:Reached limit to calls to this number
+2018-09-05 14:16:19	192.168.9.177	{"action":"GET_CONST","constName":"durations"}
+2018-09-05 14:16:32	192.168.9.177	{"action":"DUP_NUM_OK","dettId":"13","wlId":"196","num":"0690289704","tip":"N"}
+2018-09-05 14:16:38	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:16:52	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:16:55	::1	{"action":"SAY_BAL_IT","amt":"7.1"}
+2018-09-05 14:17:12	::1	{"action":"CALL_REQUEST","uuid":"07740f21-85f4-4d78-b418-4f7e40b85535","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 14:17:12	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 15:37.12'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:17:12	::1	No possibility to recover
+2018-09-05 14:19:03	::1	{"action":"CALL_END","callId":"160","totSecs":"101","talkSecs":"101","dialDTTM":"2018-09-05 16:17.15","ansDTTM":"2018-09-05 16:17.22","endDTTM":"2018-09-05 16:19.03","cause":"NORMAL_CLEARING"}
+2018-09-05 14:28:24	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:28:27	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:28:27	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:31:15	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 14:31:19	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:31:19	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:34:59	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:35:13	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:35:16	::1	{"action":"SAY_BAL_IT","amt":"7.07"}
+2018-09-05 14:35:33	::1	{"action":"CALL_REQUEST","uuid":"026d870a-2866-44ee-bed5-6194690f2e6d","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 14:35:33	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 15:55.33'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:35:33	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 101
+            [attempts] => 1
+            [recId] => 160
+        )
+
+)
+
+2018-09-05 14:36:42	::1	{"action":"CALL_END","callId":"161","totSecs":"62","talkSecs":"62","dialDTTM":"2018-09-05 16:35.36","ansDTTM":"2018-09-05 16:35.40","endDTTM":"2018-09-05 16:36.42","cause":"NORMAL_CLEARING"}
+2018-09-05 14:41:53	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 14:41:57	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:41:57	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:42:06	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 14:42:37	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 14:42:38	::1	{"action":"EXT_ENABLED","ext":"302"}
+2018-09-05 14:42:46	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:42:46	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:43:38	::1	{"action":"EXT_ENABLED","ext":"304"}
+2018-09-05 14:43:50	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:43:51	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:44:28	::1	{"action":"EXT_ENABLED","ext":"304"}
+2018-09-05 14:44:41	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:44:41	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:46:47	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:46:49	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:47:02	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:47:02	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:47:24	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:47:29	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:47:29	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:48:25	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:48:39	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:48:42	::1	{"action":"SAY_BAL_IT","amt":"7.05"}
+2018-09-05 14:48:58	::1	{"action":"CALL_REQUEST","uuid":"82dec099-5d69-489a-8869-bc66a9e46919","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 14:48:58	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 16:08.58'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:48:58	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 163
+            [attempts] => 2
+            [recId] => 160
+        )
+
+)
+
+2018-09-05 14:49:26	::1	{"action":"CALL_END","callId":"162","totSecs":"22","talkSecs":"22","dialDTTM":"2018-09-05 16:49.01","ansDTTM":"2018-09-05 16:49.04","endDTTM":"2018-09-05 16:49.26","cause":"NORMAL_CLEARING"}
+2018-09-05 14:49:45	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:49:58	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:49:58	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:50:30	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:50:44	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:50:50	::1	{"action":"SAY_BAL_IT","amt":"7.04"}
+2018-09-05 14:50:55	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:51:02	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:51:02	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:51:08	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:51:22	::1	{"action":"CHECK_CARD","pin":"195e31bd","realpin":"undefined"}
+2018-09-05 14:51:22	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:51:35	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:51:49	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:51:52	::1	{"action":"SAY_BAL_IT","amt":"7.04"}
+2018-09-05 14:52:08	::1	{"action":"CALL_REQUEST","uuid":"897ccbe3-b683-46fa-8ac5-b2ee565070b6","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 14:52:08	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 16:12.08'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:52:08	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 185
+            [attempts] => 3
+            [recId] => 160
+        )
+
+)
+
+2018-09-05 14:53:18	::1	{"action":"CALL_END","callId":"163","totSecs":"61","talkSecs":"61","dialDTTM":"2018-09-05 16:52.11","ansDTTM":"2018-09-05 16:52.17","endDTTM":"2018-09-05 16:53.18","cause":"NORMAL_CLEARING"}
+2018-09-05 14:53:26	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:53:41	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-05 14:53:45	::1	{"action":"SAY_BAL_IT","amt":"33.9"}
+2018-09-05 14:53:47	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:53:51	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-05 14:53:51	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:53:56	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:54:10	::1	{"action":"CHECK_CARD","pin":"197cd6c","realpin":"undefined"}
+2018-09-05 14:54:10	::1	**ERROR:Tessera non presente in Db
+2018-09-05 14:54:16	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:54:21	::1	{"action":"EXT_ENABLED","ext":"303"}
+2018-09-05 14:54:35	::1	{"action":"CHECK_CARD","pin":"32bcd779","realpin":"undefined"}
+2018-09-05 14:54:38	::1	{"action":"SAY_BAL_IT","amt":"33.9"}
+2018-09-05 14:54:54	::1	{"action":"CALL_REQUEST","uuid":"91a56d71-331d-495f-ae28-8ebe5aa51bd3","ext":"303","cardId":"15","dettId":"15","dialedNum":"39328808"}
+2018-09-05 14:54:54	::1	**ERROR:number 39328808 not in whitelist for dett 15
+2018-09-05 14:55:39	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-05 14:55:54	::1	{"action":"CHECK_CARD","pin":"32bc31bd","realpin":"undefined"}
+2018-09-05 14:55:57	::1	{"action":"SAY_BAL_IT","amt":"7.02"}
+2018-09-05 14:56:14	::1	{"action":"CALL_REQUEST","uuid":"4a38a49b-23c3-4c92-8de8-dc96bc3487e1","ext":"301","cardId":"13","dettId":"13","dialedNum":"0690289704"}
+2018-09-05 14:56:14	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 13
+					AND sessDTTM >= '2018-09-05 16:16.14'
+					AND c.dialedNum = '0690289704'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-05 14:56:14	::1	Array
+(
+    [0] => Array
+        (
+            [talkedSecs] => 246
+            [attempts] => 4
+            [recId] => 160
+        )
+
+)
+
+2018-09-05 14:57:23	::1	{"action":"CALL_END","callId":"165","totSecs":"62","talkSecs":"62","dialDTTM":"2018-09-05 16:56.17","ansDTTM":"2018-09-05 16:56.21","endDTTM":"2018-09-05 16:57.23","cause":"NORMAL_CLEARING"}

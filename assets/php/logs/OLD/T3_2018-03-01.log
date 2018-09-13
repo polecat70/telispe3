@@ -1,0 +1,15 @@
+2018-03-01 12:20:28	192.168.0.101	**Manca codice zona
+2018-03-01 12:20:28	192.168.0.101	**ERROR:Manca codice zona
+2018-03-01 12:20:41	192.168.0.101	**Manca codice zona
+2018-03-01 12:20:41	192.168.0.101	**ERROR:Manca codice zona
+2018-03-01 12:48:39	192.168.0.101	**tznId missing!
+2018-03-01 12:48:39	192.168.0.101	**ERROR:tznId missing!
+2018-03-01 13:03:42	192.168.0.101	**ERROR:Action 'TZN_DELETE' sconosciuta
+2018-03-01 13:41:22	192.168.0.101	**Manca numero!
+2018-03-01 13:41:22	192.168.0.101	**ERROR:Manca numero!
+2018-03-01 13:41:43	192.168.0.101	**Numero NON identificato
+2018-03-01 13:41:43	192.168.0.101	**ERROR:Numero NON identificato
+2018-03-01 13:52:24	192.168.0.101	**Numero NON identificato
+2018-03-01 13:52:24	192.168.0.101	**ERROR:Numero NON identificato
+2018-03-01 13:58:46	192.168.0.101	**Numero NON identificato
+2018-03-01 13:58:46	192.168.0.101	**ERROR:Numero NON identificato

@@ -1,0 +1,26 @@
+2018-08-10 11:11:37	::1	**ERROR:Reached limit to calls to this number
+2018-08-10 11:12:13	::1	**ERROR:Reached limit to calls to this number
+2018-08-10 11:17:32	::1	**ERROR:number 3932188108 not in whitelist for dett 15
+2018-08-10 11:20:08	::1	**ERROR:number 3932188108 not in whitelist for dett 15
+2018-08-10 11:26:55	::1	**ERROR:Reached limit to calls to this number
+2018-08-10 11:31:03	::1	**ERROR:Reached limit to calls to this number
+2018-08-10 11:31:37	::1	**ERROR:Tessera non presente in Db
+2018-08-10 11:32:16	::1	**ERROR:Reached limit to calls to this number
+2018-08-10 12:26:31	::1	**ERROR:number 3480623535 not in whitelist for dett 13
+2018-08-10 12:27:08	::1	**ERROR:Errore pin
+2018-08-10 12:27:34	::1	**ERROR:Tessera non presente in Db
+2018-08-10 12:27:59	::1	**ERROR:Tessera non presente in Db
+2018-08-10 12:33:55	::1	**ERROR:Errore pin
+2018-08-10 12:34:21	::1	**ERROR:Errore pin
+2018-08-10 12:34:43	::1	**ERROR:Tessera non presente in Db
+2018-08-10 12:37:13	::1	**ERROR:Errore pin
+2018-08-10 12:38:36	::1	**No realpin supplied!
+2018-08-10 12:38:36	::1	**ERROR:No realpin supplied!
+2018-08-10 12:38:50	::1	**No realpin supplied!
+2018-08-10 12:38:50	::1	**ERROR:No realpin supplied!
+2018-08-10 12:38:55	::1	**ERROR:Tessera non presente in Db
+2018-08-10 12:41:04	::1	**ERROR:Reached limit to calls to this number
+2018-08-10 13:00:26	::1	**ERROR:Reached limit to calls to this number
+2018-08-10 13:04:00	192.168.9.113	**Password Errata!
+2018-08-10 13:04:00	192.168.9.113	**ERROR:Password Errata!
+2018-08-10 13:07:42	::1	**ERROR:Reached limit to calls to this number

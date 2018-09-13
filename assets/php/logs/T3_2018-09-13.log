@@ -1,0 +1,48 @@
+2018-09-13 07:51:47	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:02:40	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:04:59	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:34:29	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:35:03	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:35:45	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:36:50	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:37:45	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:38:35	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:39:26	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:41:38	192.168.90.3	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-13 08:56:35	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:56:55	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 08:58:34	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:02:46	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:03:23	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:09:25	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:10:58	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:12:42	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:13:22	192.168.90.3	{"action":"GET_DETT_CREDIT","dettId":"14"}
+2018-09-13 09:18:27	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:23:30	192.168.90.3	{"action":"SAVE_WIN_POS","userId":"1","data":"[{\"id\":\"dettWin\",\"l\":-2,\"t\":0,\"w\":791,\"h\":728}]"}
+2018-09-13 09:23:50	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:32:05	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:32:35	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-13 09:39:21	192.168.90.3	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-13 09:39:26	192.168.90.3	{"action":"FREE_CARD","serial":"100003"}
+2018-09-13 09:41:00	::1	{"action":"EXT_ENABLED","ext":"305"}
+2018-09-13 09:41:06	::1	{"action":"CHECK_CARD","pin":"124","realpin":"undefined"}
+2018-09-13 09:41:09	::1	{"action":"SAY_BAL_IT","amt":"32.69"}
+2018-09-13 09:41:29	::1	{"action":"CALL_REQUEST","uuid":"f7e8bb47-0282-4987-b41d-3183c64f7c80","ext":"305","cardId":"18","dettId":"15","dialedNum":"3383407435"}
+2018-09-13 09:41:29	::1	{"uuid":"f7e8bb47-0282-4987-b41d-3183c64f7c80","ext":"305","cardId":"18","dettId":"15","dialedNum":"3383407435"}
+2018-09-13 09:41:29	::1	{"uuid":"f7e8bb47-0282-4987-b41d-3183c64f7c80","ext":"305","cardId":"18","dettId":"15","dialedNum":"3383407435"}
+2018-09-13 09:41:29	::1	SELECT 
+						SUM(c.talkSecs) talkedSecs
+					,	COUNT(*) attempts
+					,	MAX(IF(IFNULL(c.retryCallId,0)=0,c.callId,0)) recId
+					FROM callrec c
+					WHERE c.dettId = 15
+					AND sessDTTM >= '2018-09-13 11:11.29'
+					AND c.callTip = 'N'
+					AND c.dialedNum = '3383407435'
+					AND status=0
+					GROUP BY c.dettId 
+					HAVING MIN(IFNULL(c.retryCallId,0)) = 0
+2018-09-13 09:41:29	::1	No possibility to recover
+2018-09-13 09:41:29	::1	{"uuid":"f7e8bb47-0282-4987-b41d-3183c64f7c80","ext":"305","cardId":"18","dettId":"15","dialedNum":"3383407435","sessDTTM":"2018-09-13 11:41:29","wlId":"183","callTip":"N","descr":"Moglie","callsQta":"6","callsFreq":"D","expire":"3000-12-31","duration":"10","record":"1","globQta":"10","globFreq":"D","minCharge":"0.05","pfxId":"120","tznId":"2","secsGrace":0,"rateType":"N","rate":0.0944,"drpCharge":0,"creditInit":32.69,"secsAvail":20778,"trunkId":"3","trunkType":"D","trunkStr":"sofia\/gateway\/noitel\/","secsMax":600}
+2018-09-13 09:42:47	::1	{"action":"CALL_END","callId":"219","totSecs":"58","talkSecs":"58","dialDTTM":"2018-09-13 11:41.39","ansDTTM":"2018-09-13 11:41.48","endDTTM":"2018-09-13 11:42.46","cause":"NORMAL_CLEARING"}

@@ -1,0 +1,6 @@
+2018-09-03 13:27:00	::1	**ERROR:number 3932188108 not in whitelist for dett 15
+2018-09-03 13:27:43	::1	**ERROR:Numero 3383407435 scaduto il 2018-08-31
+2018-09-03 13:32:36	::1	**ERROR:credit less than minCredit
+2018-09-03 14:18:05	192.168.9.177	**Impossibile Salvare: Una altra Tessera con questo PIN o SERIALE esiste gia'
+2018-09-03 14:18:05	192.168.9.177	**ERROR:Impossibile Salvare: Una altra Tessera con questo PIN o SERIALE esiste gia'
+2018-09-03 14:19:22	::1	**ERROR:Reached limit to calls to this number

@@ -1,0 +1,142 @@
+#!/usr/bin/php
+
+
+<?php
+require_once("./assets/php/config.php");
+require_once("./assets/php/fdl.php");
+require_once("./assets/php/classes/mySqliClass.php");
+
+$host = 'localhost'; //host
+$port = '9000'; //port
+$null = NULL; //null var
+
+define("CGREEN",	"#23ff23");
+define("CGREY",		"#c0c0c0");
+define("CYELLOW",	"#ffff00");
+define("CRED",		"#ff0000");
+define("CBLUE",		"#76c0ff");
+
+define("DBG_LEV",	1);
+
+
+class CallMonSrv {
+	private $dtCalls = [];
+	private $opCalls = [];
+	private $inCalls = [];
+	
+	// timer, old time
+	private $tOld = "";
+	
+	//	socket towards fs
+	private $fp = null;
+	
+	
+	private function fsPortOpen()  {
+		
+		$fp = @fsockopen(FS_HOST, FS_PORT, $errNo, $errDescr);
+		if (!$fp) {	
+			echo "ERROR: $errNo - $errDescr";
+			return(false);
+		}
+
+		socket_set_blocking($fp,false);
+
+		if ($fp) {
+			while (!feof($fp)) {
+				$buffer = fgets($fp, 1024);
+				usleep(100); //allow time for reponse
+				if (trim($buffer) == "Content-Type: auth/request") {
+					echo "sending AUTH " . FS_PWD . "\n";
+					fputs($fp, "AUTH " . FS_PWD . "\n\n");
+					break;
+				}
+			}
+			return $fp;
+		}	else {
+			return false;
+		}           
+	}
+	
+	public function fsCmdSend ($cmd) {
+		
+		if ($fp) {    
+		    fputs($fp, $cmd."\n\n");    
+		    usleep(100); //allow time for reponse
+		     
+		    $response = "";
+		    $i = 0;
+		    $contentlength = 0;
+		    while (!feof($fp)) {
+		       $buffer = fgets($fp, 4096);
+		       if ($contentlength > 0) {
+		          $response .= $buffer;
+		       }
+		        
+		       if ($contentlength == 0) { //if contentlenght is already don't process again
+		           if (strlen(trim($buffer)) > 0) { //run only if buffer has content
+		               $temparray = explode(":", trim($buffer));
+		               if ($temparray[0] == "Content-Length") {
+		                  $contentlength = trim($temparray[1]);
+		               }
+		           }
+		       }
+		        
+		       usleep(100); //allow time for reponse
+		        
+		       //optional because of script timeout //don't let while loop become endless
+		       if ($i > 10000) { break; } 
+		        
+		       if ($contentlength > 0) { //is contentlength set
+		           //stop reading if all content has been read.
+		           if (strlen($response) >= $contentlength) {  
+		              break;
+		           }
+		       }
+		       $i++;
+		    }
+		     
+		    return($response);
+		}
+		else {
+		  echo "no handle";
+		}
+	}		
+		
+	
+	private function mainLoop() {
+	}
+
+	
+	function dbg($lev, $s) {
+		if ($lev < DBG_LEV)	return;
+		
+		if (is_array($s))		print_r ($s);
+		else					echo $s;
+		
+		echo "\n";
+				
+	}
+	
+	function __construct() {
+    	
+    	$this->my = new mySqliDb(T3_SRV, T3_USR, T3_PWD, T3_DB);
+
+    	dbg(1,"Getting constants");
+    	$sql = "SELECT constName, constVal FROM const";
+    	$rows = $this->my->myGetRows($sql);
+    	if ($rows!==0 && $rows!==-1) {
+			foreach ($rows as $row) {
+				define($row["constName"], $row["constVal"]);
+				dbg(1,"\t" . $row["constName"] . " = " . $row["constVal"]);
+			}
+    	}
+    	
+    }
+    
+    function __destruct() {
+    	unset($this->my);
+    }    			
+	
+	
+	
+}

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Telispe 3 Call Monitor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<script src="./assets/js/jquery-3.3.1.min.js"></script>
+<script src="./assets/js/fdlnew.js"></script>  
+<script src="./assets/js/webphone/webphone_api.js"></script>
+<style>
+
+html, body {
+    margin:0px;
+    padding: 0px;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:white;
+}
+
+
+.top {
+	width:100%;
+	height:24px;
+	background-color:#dedede;
+}
+
+.title {
+	float:left;
+	width:200px;
+	font-family: sans-serif;
+	font-size:12pt;
+	margin-top:4px;
+	margin-left:6px;
+}
+
+
+
+.clock {
+	float:right;
+	width:150px;
+	font-family: sans-serif;
+	font-size:12pt;
+	text-align:right;
+	margin-top:4px;
+	margin-right:6px;
+}
+
+.slider {
+    float:right;
+    width:200px;
+    height:14px;
+    background-color: red;
+}
+
+.stat {
+	float:left;
+	width:14px;
+	height:14px;
+	margin-top:5px;
+	margin-left:6px;
+	border-radius: 10px;    
+	background-color:red;
+}
+
+.cont {
+	width: 100%;
+	height:calc(100% - 24px);
+	background-color:#6f6f6f;
+	overflow:auto;
+}
+
+.call {
+    width	:	270px;
+    height	:	104px;
+    background-color: #ccffcc;
+    box-shadow: 3px 3px #333232;
+    border-radius: 6px;    
+	float: left;
+	margin-left: 6px;
+	margin-top:6px;
+	font-family:sans-serif;
+	font-size: 10pt;
+}
+
+
+
+table {
+	font-family:sans-serif;
+	font-size: 10pt;
+	padding: 0;
+	margin: 0;
+}
+
+table td {
+	border-radius:4px;
+	padding-left:2px;
+	height:14px;
+}
+
+.btend {
+	width:		36px; 
+	height:		16px;	
+    background-color:#f0f0f0;
+    border-radius: 4px;    
+	margin-botton: 0px;
+	text-align:center;
+}
+
+.btend:hover {
+	background-color: red;
+}
+
+.btrec {
+	width:		36px; 
+	height:		36px; 
+	//background-color:red;
+    background-color:#e0e0e0;
+    border-radius: 8px;    
+	margin-botton: 4px;
+	text-align:center;
+}
+
+.btspy {
+	width:		36px;
+	height:		36px;
+    background-color:#e0e0e0;
+    border-radius: 8px;    
+	margin-top: 4px;
+	text-align:center;
+}
+
+.bgw {background-color:white;}
+.s1 {width:60px;}
+
+.template  {
+	display: none;
+	width:	270px;
+	height:	104px;
+}
+
+
+@-webkit-keyframes blinkIn {
+	0%   { background-color: 	#00ff6f; }
+	49% { background-color: 	#00ff6f; }
+	50% { background-color: 	#76c0ff; }
+	99% { background-color: 	#76c0ff; }
+	100% { background-color: 	#00ff6f; }
+}
+@-moz-keyframes blinkIn {
+	0%   { background-color: 	#00ff6f; }
+	49% { background-color: 	#00ff6f; }
+	50% { background-color: 	#76c0ff; }
+	99% { background-color: 	#76c0ff; }
+	100% { background-color: 	#00ff6f; }
+}
+@keyframes blinkIn {
+	0%   { background-color: 	#00ff6f; }
+	49% { background-color: 	#00ff6f; }
+	50% { background-color: 	#76c0ff; }
+	99% { background-color: 	#76c0ff; }
+	100% { background-color: 	#00ff6f; }
+}
+
+.blink {
+  -webkit-animation: blinkIn 1s infinite;
+  -moz-animation:    blinkIn 1s infinite;
+  animation:         blinkIn 1s infinite;
+}
+
+</style>
+
+
+
+<script>
+
+var spyExt = 1015;
+var spySrv = "192.168.0.234";
+var spyPwd = "passw0rd";
+
+const CON_YES 	= 1;
+const CON_NO 	= 2;
+const CON_TRY 	= 3;
+
+const CGREEN 	= "#23ff23";
+const CGREY 	= "#c0c0c0";
+const CYELLOW	= "#ffff00";
+const CBLUE		= "#76c0ff";
+
+const REC_FCD	= "#0000ff";
+const REC_ON	= "#ff0000";
+const REC_OFF	= "#e0e0e0";
+
+const SPY_ON	= "#ff0000";
+const SPY_OFF	= "#e0e0e0";
+
+var conState = CON_NO;	
+
+const ZOMBIE_TIME	 = 5;
+
+var ts = 0;
+
+const port = "9000";
+
+var websocket = null;	
+
+var currentSpyMain = "";
+var currentSpySub = "";
+
+
+webphone_api.onLoaded(function () {
+	
+	webphone_api.setparameter('serveraddress', spySrv);
+	webphone_api.setparameter('username', spyExt); 
+	webphone_api.setparameter('password', spyPwd); 
+
+	webphone_api.start();
+    webphone_api.mute(true,2);
+    webphone_api.setvolume(1,60);
+    
+	webphone_api.onCallStateChange(function (event, direction, peername, peerdisplayname, line) {
+ 		logit("STATUS UPDATE:" + event + " - line:" + line + "- dir:" + direction + " - peer:" + peername + " - peerdistp:" + peerdisplayname);
+ 		if (event === 'callRinging' && direction==2) {
+			webphone_api.accept(); 
+ 		}
+ 	});
+
+	webphone_api.onEvents( function (event)  {
+		logit("EVENT:"+ event);
+ 	});
+ 	
+});
+
+function logit(s) {
+	
+}
+
+$( document ).ready(function() {
+	
+	var tmp = $(location).attr('href');
+	var tar = tmp.split("/");
+	wsUri = "ws://" + tar[2] + ":" + port;
+	
+	$(".template").data("callBeg", "XXX");
+	
+	$(".clock").click(function() {
+		var msg = JSON.stringify({msg:"clock clicked!"});
+		websocket.send(msg);
+	});
+
+	test();
+	
+	function setButtons() {
+		
+		$(".btend").click( function () {
+			
+			if (!confirm("Sicuro di voler terminare questa chiamata?"))
+				return;
+			
+			var dad =  $(this).parent().parent().parent().parent().parent(); // .attr('class');
+			
+			if(rgb2hex(dad.css("background-color"))!=CGREEN) 
+				return;
+			
+			
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+			$(this).css("background-color","red");
+			doEnd(uid);
+			
+		});
+		
+		$(".btrec").click( function () {
+			
+			var dad =  $(this).parent().parent().parent().parent().parent(); // .attr('class');
+			
+			if(rgb2hex(dad.css("background-color"))!=CGREEN) 
+				return;
+			
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+			var bgcol = rgb2hex($(this).css("background-color"));
+			if (bgcol == REC_FCD) return;
+			if (bgcol == REC_OFF) 	doRec($(this), uid, 1);
+			else					doRec($(this), uid, 0);
+			
+		});
+
+		
+		$(".btspy").click( function (){
+
+
+			var dad =  $(this).parent().parent().parent().parent().parent(); // .attr('class');
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+			if (currentSpyMain=="") {
+				$(this).css("background-color", SPY_ON);
+				currentSpyMain = uid;
+			} else if (currentSpyMain==uid) {
+				$(this).css("background-color", SPY_OFF);
+				currentSpyMain = "";
+			} else {
+				$(".uid_" + currentSpyMain).find(".btspy").css("background-color", SPY_OFF);
+				$(this).css("background-color", SPY_ON);
+				currentSpyMain = uid;
+			}
+			doSpy();
+		});
+		
+		$(".btPark").click(function (){
+			var dad =  $(this).parent().parent().parent().parent().parent(); // .attr('class');
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+
+			var msg = {
+				msg		: "PARK"
+			,	uid		: uid
+			};
+			websocket.send(JSON.stringify(msg));			
+						
+		});
+		
+	}	
+
+	setInterval(function () {checkConnect();}, 2000);
+	checkConnect();
+
+	function checkConnect() {
+		switch (conState) {
+			case "CON_YES" 	: 		
+				$(".stat").css("background-color","green");	
+				break;
+				
+			case "CON_TRY" 	: 		
+				$(".stat").css("background-color","yellow");	
+				break;
+			
+			case "CON_NO"	:
+				$(".stat").css("background-color","red");	
+				break;
+		}
+		if (conState == CON_NO)	
+			tryConnect();
+
+	}
+
+	function tryConnect() {
+		$(".stat").css("background-color","yellow");
+		conState = CON_TRY;
+		log ("Attempting Connection ..");
+		websocket = new WebSocket(wsUri ); 
+		
+		websocket.onopen = function(ev) { // connection is open 
+			amConnected = false;
+			conState = CON_YES;
+			$(".stat").css("background-color","green");	
+			log ("Connected ..");
+		}	
+
+		websocket.onmessage = function(ev) {
+			var msg = JSON.parse(ev.data); //PHP sends Json data
+			var type = msg.type; //message type
+			switch  (type) {
+				case "system" :
+					log("**SYSTEM message: " + msg.message);
+					break;
+				
+				case "heartbeat" :
+					$(".clock").html(msg.time);
+					ts = parseInt(msg.ts);
+
+					var calls = msg.calls;
+					var totcalls = Object.keys(calls).length;
+					console.log("call length:" + totcalls);
+					if (totcalls > 0) {
+						console.log("calls esists");
+						$.each(calls, function(key, val) {
+							console.log(key + "=>" + val);							
+						});
+						
+					}
+
+
+					$( ".call" ).each(function(index) {
+					  	var callBeg = $(this).data("callBeg");
+						if (callBeg!="XXX") {
+							callBeg = parseInt(callBeg);
+							var dur = ts - callBeg;
+							if (dur >= 0) {
+								if (rgb2hex($(this).css("background-color"))!=CGREEN) 
+									$(this).css("background-color", CGREEN);
+
+								// $(this).find(".tmbeg").html(msg.time.substr(11));
+								$(this).find(".dur").html(formatTime(dur));
+							}
+							var bg = rgb2hex($(this).css("background-color"));
+					  		console.log("*** BG:" + bg + " - " + callBeg);
+						} else {
+							if($(this).find(".tmbeg").html()=="")
+								$(this).find(".tmbeg").html(msg.time.substr(11));
+						}
+					});
+					
+					
+					$( ".call" ).each(function(index) {
+						var killtime = $(this).data("killme");
+						if (killtime !=0 && killtime <= ts)
+							$(this).remove();	
+					});
+					break;
+				
+				case "calldata" : 
+					log("Calldata - uid:" + msg.uid + " ext:" + msg.ext + " num:" + msg.num + " evt:" + msg.evt);
+					
+					if (msg.ext =="" && msg.num == spyExt) {
+						if(msg.evt=="CHANNEL_HANGUP" && msg.uid == currentSpySub) {
+							$(".uid_" + currentSpyMain).find(".btspy").css("background-color", SPY_OFF);
+							currentSpyMain = "";
+							currentSpySub = "";
+						} else {
+							currentSpySub = msg.uid;
+						}
+					} else {
+						uidcl = "uid_" + msg.uid;
+						var found = ($("." + uidcl).length!=0);
+						if (!found && msg.evt!="CHANNEL_HANGUP" ) {
+							c = $(".template").clone();
+							c.removeClass("template");
+							c.addClass(uidcl);
+							c.appendTo(".cont");
+							c.data("killme",0);
+							c.data("callBeg","XXX");
+							setButtons();
+						}
+						if (found &&  msg.evt=="CHANNEL_HANGUP" )  {
+							$("." + uidcl).data("killme", ts + ZOMBIE_TIME);
+						}
+						
+						switch (msg.evt) {
+							case "CHANNEL_ANSWER"	: 
+								if ($("." + uidcl).data("callBeg")=="XXX") 
+									$("." + uidcl).data("callBeg",	ts + parseInt(msg.grace));
+								
+								break;
+							
+							case "CHANNEL_HANGUP"	: 
+								$("." + uidcl).css("background-color", CGREY);	
+								$("." + uidcl).data("callBeg","XXX");
+								break;
+						
+						
+							case "IN_RINGING" 	:
+								$("." + uidcl).css("background-color", CBLUE);	
+								$("." + uidcl).addClass("blink");
+								break;
+								
+							case "IN_ANSWERED" 	:
+								$("." + uidcl).css("background-color", CBLUE);	
+								$("." + uidcl).removeClass("blink");
+								$("." + uidcl).data("callBeg",	ts );
+								break;
+								
+							case "IN_HANGUP"	:
+								$("." + uidcl).css("background-color", CGREY);	
+								$("." + uidcl).removeClass("blink");
+								$("." + uidcl).data("callBeg","XXX");
+								break;
+						
+							
+							default			: 
+								$("." + uidcl).css("background-color", CYELLOW);	
+								if ($("." + uidcl).data("callBeg")=="XXX")
+									$("." + uidcl).data("callBeg",	ts + parseInt(msg.grace));
+								break;
+						}
+						
+						if (msg.evt!="CHANNEL_HANGUP")	{
+							for (key in msg) {
+								console.debug ("Setting '" + key + "' to '" + msg[key] + "'"); 
+								$("." + uidcl).find("." + key).html(msg[key]);
+							}
+						} 
+					}
+					break;
+			}
+			
+			$(".cont").scrollTop = (".cont").scrollHeight;
+		
+		};
+		
+		websocket.onerror	= function(ev){ 
+			log("Error Occurred - " + ev.data); 
+			conState = CON_NO;
+		}; 
+		websocket.onclose 	= function(ev){ 
+			log("Socket Closed"); 
+			conState = CON_NO;
+		}; 
+	}
+
+	function doEnd (uid) {
+		webphone_api.setline(-2);
+		webphone_api.hangup();
+		var msg = {
+			msg	: "HANGUP"
+		,	uid	: uid
+		};
+		websocket.send(JSON.stringify(msg));		
+		
+		
+	}
+	
+	function doRec (el, uid, tf) {
+		// alert( (tf ? "Start" : "Stop") + " recording " + uid);
+		el.css("background-color", tf ? REC_ON : REC_OFF);
+		
+		var msg = {
+			msg		: "RECORD"
+		,	uid		: uid
+		,	set		: tf ? "ON" : "OFF"
+		};
+		websocket.send(JSON.stringify(msg));		
+	}
+
+	function doSpy () {
+
+		webphone_api.setline(-2);
+		webphone_api.hangup();
+
+
+		// start spying on currentSpyMain
+		if (currentSpySub!="") {
+			doEnd(currentSpySub);
+			currentSpySub="";
+		}
+
+		var msg = {
+			msg		: "SPY"
+		,	ext		: spyExt
+		,	uid		: currentSpyMain
+		};
+		websocket.send(JSON.stringify(msg));		
+		
+		
+	}
+	
+	function log(s) {
+		console.log(s);
+		return;
+		$(".cont").html($(".cont").html() + s + "<br/>");
+	}
+
+	function rgb2hex(rgb) {
+	    if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+
+	    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+	    function hex(x) {
+	        return ("0" + parseInt(x).toString(16)).slice(-2);
+	    }
+	    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+	}	
+	
+	function formatTime(secs) {
+		var mm = Math.floor(secs / 60);
+		var ss = secs % 60;
+		if (mm < 10) 	mm = "0" + mm;
+		if (ss < 10) 	ss = "0" + ss;
+		return(mm + ":" + ss);
+		
+	}
+	
+	
+	function test() {
+		for (var i=0; i<1; i++) {
+			var c = $(".template").clone();
+			c.removeClass("template");
+			c.addClass("uid_" + i);
+			c.appendTo(".cont");
+			
+			if ((i % 3)==0){
+				c.find(".btrec").css("background-color", REC_FCD);
+			}
+		}
+
+		$(".call").data("callBeg", "XXX");
+		setButtons();
+	}			
+	
+});
+
+</script>
+
+
+</head>
+
+<body>
+<div class="top">
+	<div class="stat"></div>
+	<div class="title">Telispe 3 Call Monitor</div>
+    <div class="clock"></div>
+    <div class="slider"></div>
+</div>
+
+
+<div class="cont">
+	<div class="call template">
+		<table style="width:100%; height:100%;" border=0>
+			<tr>
+				<td style="width:1px;" rowspan="5"></td>
+
+				<td>Tessera</td>
+				<td class="card bgw s1" style="width:64px;"></td>
+
+				<td>Interno</td>
+				<td class="ext bgw s1"></td>
+				
+				<td><div class="btend">FINE</div></td>
+			</tr>
+			<tr>
+				<td colspan="4" class="dett bgw"></td>
+				<td rowspan="4">
+					<div class="btrec"><img src="./assets/img/record-icon.png" alt="rec" style="margin-top:5px; width:26px;height:26px;" ></div>
+					<div class="btspy"><img src="./assets/img/speaker-icon.png" alt="rec" style="margin-top:5px; width:26px;height:26px;" ></div>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>Inzio</td>
+				<td class="tmbeg bgw s1"></td>
+
+				<td>Durata</td>
+				<td class="dur bgw s1"></td>
+			
+
+			</tr>
+			
+			<tr>
+				<td>numero</td>
+				<td class="num bgw" colspan="2"></td>
+				<td class="tip bgw s1"></td>
+			</tr>	
+
+			<tr>
+				<td colspan="4" class="dest bgw"></td>
+			</tr>
+		</table>
+		
+
+	</div>
+
+	
+	
+	
+
+
+</div>	
+</body>
+</html>

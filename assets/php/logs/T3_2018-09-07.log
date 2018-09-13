@@ -1,0 +1,17 @@
+2018-09-07 13:27:14	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-07 13:27:19	192.168.90.3	{"action":"GET_DETT_CREDIT","dettId":"13"}
+2018-09-07 13:38:21	192.168.90.3	{"action":"SAVE_WIN_POS","userId":"1","data":"[{\"id\":\"dettWin\",\"l\":-2,\"t\":0,\"w\":791,\"h\":728},{\"id\":\"dettAccWin\",\"l\":796,\"t\":0,\"w\":600,\"h\":420}]"}
+2018-09-07 13:39:22	192.168.90.3	{"action":"LOGIN","uid":"","pwd":""}
+2018-09-07 13:39:22	192.168.90.3	**Manca Login
+2018-09-07 13:39:22	192.168.90.3	**ERROR:Manca Login
+2018-09-07 13:39:26	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-07 14:24:28	::1	{"action":"EXT_ENABLED","ext":"305"}
+2018-09-07 14:24:34	::1	{"action":"CHECK_CARD","pin":"124","realpin":"undefined"}
+2018-09-07 14:24:37	::1	{"action":"SAY_BAL_IT","amt":"32.97"}
+2018-09-07 15:26:08	192.168.90.3	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-07 15:27:29	192.168.90.3	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-07 15:27:35	192.168.90.3	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-07 15:30:25	192.168.90.3	{"action":"GET_CONST","constName":"durations"}
+2018-09-07 15:31:18	192.168.90.3	{"action":"GET_CONST","constName":"durations"}
+2018-09-07 15:31:51	192.168.90.3	{"action":"GET_CONST","constName":"durations"}
+2018-09-07 15:32:11	192.168.90.3	{"action":"GET_CONST","constName":"durations"}
