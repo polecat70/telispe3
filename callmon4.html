@@ -203,7 +203,15 @@ const CON_YES 	= 1;
 const CON_NO 	= 2;
 const CON_TRY 	= 3;
 
-const CGREY 	= "#c0c0c0";
+const CGREEN 	= 	"#23ff23";
+const CGREY 	= 	"#c0c0c0";
+const CYELLOW 	= 	"#ffff00";
+const CRED 		= 	"#ff0000";
+const CBLUE 	= 	"#76c0ff";
+const CORANGE 	= 	"#ff9800";
+
+
+
 
 const REC_FCD	= "#0000ff";
 const REC_ON	= "#ff0000";
@@ -250,15 +258,13 @@ webphone_api.onLoaded(function () {
  	
 });
 
+
 function logit(s) {
 	
 }
 
-$(document).ready(function() {
-
-	setInterval(function () {checkConnect();}, 2000);
-	checkConnect();
-
+$( document ).ready(function() {
+	
 	
 	$("#vol").val(startVol);
 	
@@ -296,10 +302,27 @@ $(document).ready(function() {
 			});
 			if (uid=="")	return;
 			var opExt = dad.attr("opExt")
-			alert("uid:" + uid + "\nreq:" + numReq + "\nopExt:" + opExt);
+			// alert("uid:" + uid + "\nreq:" + numReq + "\nopExt:" + opExt);
 			doOpForDett(uid, numReq, opExt);
 			
 		});
+		
+		$(".calltrans").click(function() {
+			var dad =  $(this).parent().parent().parent().parent().parent().parent();
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+			var rid = dad.attr("rid")
+			alert("uid:" + uid + "\nrid:" + rid);
+			
+		});
+		
 		
 		$(".btend").click( function () {
 			
@@ -352,6 +375,8 @@ $(document).ready(function() {
 		
 	}	
 
+	setInterval(function () {checkConnect();}, 2000);
+	checkConnect();
 
 	function checkConnect() {
 		switch (conState) {
@@ -471,6 +496,7 @@ $(document).ready(function() {
 
 		$("." + uidcl).find(".chiamato").show();
 		$("." + uidcl).find(".richiesto").hide();
+		$("." + uidcl).find(".trasferisci").hide();
 
 		if ("org" in msg)			$("." + uidcl).find(".org").html(msg.org);
 		if ("orgDescr" in msg)		$("." + uidcl).find(".orgDescr").html(msg.orgDescr);
@@ -478,14 +504,30 @@ $(document).ready(function() {
 		if ("dstDescr" in msg)		$("." + uidcl).find(".dstDescr").html(msg.dstDescr);
 		if ("tmbeg" in msg)			$("." + uidcl).find(".tmbeg").html(msg.tmbeg);
 		if ("opExt" in msg)			$("." + uidcl).attr("opExt",msg.opExt);
+		if ("rid"	in msg)			$("." + uidcl).attr("rid",msg.rid);
 		
 		if ("bgcol" in msg)		{	
 			$("." + uidcl).css("background-color", msg.bgcol);
-			if (msg.bgcol=='#ff0000') {
+			if (msg.bgcol== CRED ) {
+				$("." + uidcl).find(".chiamato").hide();
+				$("." + uidcl).find(".trasferisci").hide();
+				$("." + uidcl).find(".richiesto").show();
+			}
+
+			if (msg.bgcol== CORANGE ) {
+				$("." + uidcl).find(".chiamato").hide();
+				$("." + uidcl).find(".trasferisci").show();
+			}
+
+			if (msg.bgcol== CRED ) {
 				$("." + uidcl).find(".chiamato").hide();
 				$("." + uidcl).find(".richiesto").show();
 			}
+
+			
 		}
+		
+	// 	if ("
 		
 		if ("ctStart" in msg)		$("." + uidcl).data("ctStart", msg.ctStart);
 		
@@ -627,7 +669,10 @@ $(document).ready(function() {
 				<td >
 					<div class="chiamato">Chiamato</div>
 					<div class="richiesto">
-						<button class="callreq">Richiesto</button>
+						<button class="callreq">Chiama</button>
+					</div>
+					<div class="trasferisci">
+						<button class="calltrans">Trasferisci</button>
 					</div>
 				</td>
 				<td class="dst bgw" colspan="3"></td>

@@ -226,6 +226,7 @@ function doOnLoad() {
         if (mEna.indexOf(thisBro)!=-1) {
 	        menu.addNewSibling(lastBro,        thisBro,     "Statistiche",             false);
 	            menu.addNewChild(thisBro,     idx+1,     "lastCall",          "Ultime chiamate Detenuto", 			false);
+	            menu.addNewChild(thisBro,     idx+1,     "lastCall2",          "Ultime chiamate Detenuto v2", 			false);
 	        lastBro = thisBro;
 		}
 		        
@@ -313,6 +314,7 @@ function doOnLoad() {
 				case "trunkEdit"	:	trunkEdit();	break;
 			
 				case "lastCall"		:	lastCall();		break;
+				case "lastCall2"	:	lastCall2();	break;
 				
 			}                                                                                                   
         });
@@ -320,7 +322,7 @@ function doOnLoad() {
     }
 
     if (debug != '') {    
-    	dettEdit();
+    	lastCall2();
     }
 }    
 
@@ -342,6 +344,8 @@ function doOnLoad() {
 <script src="./js/istEdit.js"></script>
 
 <script src="./js/lastCall.js"></script>
+<script src="./js/lastCall2.js"></script>
+
 <script src="./js/popCall.js"></script>
 </head>
 <body onload="doOnLoad();">

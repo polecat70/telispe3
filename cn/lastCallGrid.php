@@ -8,6 +8,13 @@ require_once("../assets/DHTMLX46/codebase/grid_connector.php");
 require_once("../assets/DHTMLX46/codebase/db_mysqli.php");
 
 
+
+if (!isset($_GET["limit"]))	
+	$limit = 90;
+else 
+	$limit = $_GET["limit"];
+
+
 $res = mysqli_connect(T3_SRV, T3_USR, T3_PWD, T3_DB);
 if (!$res) {
     echo "ERROR!!";
@@ -41,6 +48,12 @@ $sql = "SELECT
 			GROUP BY r.dettId
 		) z ON z.dettId = d.dettId";
 
+if  ($limit == "XX")		
+	$sql .= "\nWHERE ld IS NULL";
+else 
+	$sql .= "\nWHERE ld >= $limit"
+;
+		
  $grid->render_complex_sql($sql, "dettId", "lname,fname,ll,ld,dd,ww,mm");        
         
 ?>
