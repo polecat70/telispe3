@@ -54,22 +54,23 @@ function lastCall2(winpos) {
 			case "tL60" :
 			case "tL90" :
 			case "tLXX" :
+            case "tDet":
 				lc2Toolbar.enableItem("tL30");
 				lc2Toolbar.enableItem("tL60");
 				lc2Toolbar.enableItem("tL90");
 				lc2Toolbar.enableItem("tLXX");
-				lc2Toolbar.disableItem(id);
-		 		lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=" + id.substr(2,2));
+                lc2Toolbar.enableItem("tDet");
+                lc2Toolbar.disableItem(id);
+                if(id="tDet")
+                    lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=0");
+                else
+		 		   lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=" + id.substr(2,2));
 				break;
 
 
 			case "tRef" : 
 				lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=90");
 				break;
-				
-			case "tDet" :
-                lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=0");
-                break;
 				
 			
 			case "tXLS" :
