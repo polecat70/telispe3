@@ -90,7 +90,7 @@ function lastCall2(winpos) {
     // GRID ////////////////////////////////////////////////////////////////////
     lc2Layout.cells("a").showView("def");
     lc2Grid = lc2Layout.cells("a").attachGrid();
-    lc2Grid.setHeader("Pippo,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan");
+    lc2Grid.setHeader("Ultime chiamate Detenuto/i,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan");
     lc2Grid.attachHeader("Cognome,Nome,Ultima,gg,Oggi,Sett.,Mese");
     // lc2Grid.setColumnIds("serial,pinOrig,pin,dtCreate,notes");
     lc2Grid.attachHeader("#text_filter,#text_filter,#text_filter,#numeric_filter,#text_filter,#text_filter,#text_filter");
@@ -120,10 +120,12 @@ function lastCall2(winpos) {
 
     histTb = lc2Layout.cells("a").attachToolbar();
     histTb.setIconsPath("../assets/DHTMLX46/icons/");
-    histTb.addButton("tRef",1,"Aggiorna","reload.png","");
-	histTb.addButton("tXLS",2,"Esporta in Excel","Table.ico","Table-sel.ico");   
-	histTb.addButton("tPDF",3,"Esporta in PDF","pdf.png","pdf-sel.png");   
-    histTb.addButton("tRet",4,"Torna a Lista","User group.ico","User group-sel.ico");
+    histTb.addButton("tRet",1,"Torna a Lista","User group.ico","User group-sel.ico");
+    histTb.addButton("tRef",2,"Aggiorna","reload.png","");
+    lc2Toolbar.addSeparator("sep1",3);
+	histTb.addButton("tXLS",4,"Esporta in Excel","Table.ico","Table-sel.ico");   
+	histTb.addButton("tPDF",5,"Esporta in PDF","pdf.png","pdf-sel.png");   
+    
     
     
     histTb.attachEvent("onClick", function(id) {
