@@ -137,10 +137,10 @@ function dettEdit(winpos) {
     anaToolbar = dettLayout.cells("a").attachToolbar();
     anaToolbar.setIconsPath("../assets/DHTMLX46/icons/");
 
-    anaToolbar.addButton("tRet",1,"Lista Detenuti","User group.ico","User group.ico");
-    anaToolbar.addButton("tAna",2,"Anagrafica","Male.ico","Male.ico");
+    anaToolbar.addButton("tRet",1,"Lista Detenuti","User group.ico","User group-sel.ico");
+    anaToolbar.addButton("tAna",2,"Anagrafica","Male.ico","Male-sel.ico");
     anaToolbar.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone-sel.ico");   
-    anaToolbar.addButton("tHist",4,"Storio Chiamate","List.ico","List.ico");   
+    anaToolbar.addButton("tHist",4,"Storio Chiamate","List.ico","List-sel.ico");   
     anaToolbar.disableItem("tAna");
        
     anaToolbar.attachEvent("onClick", function(id) {
@@ -422,10 +422,10 @@ function dettEdit(winpos) {
     wlTb = dettLayout.cells("a").attachToolbar();
     wlTb.setIconsPath("../assets/DHTMLX46/icons/");
     
-    wlTb.addButton("tRet",1,"Lista Detenuti","User group.ico","User group.ico");
-    wlTb.addButton("tAna",2,"Anagrafica","Male.ico","Male.ico");
+    wlTb.addButton("tRet",1,"Lista Detenuti","User group.ico","User group-sel.ico");
+    wlTb.addButton("tAna",2,"Anagrafica","Male.ico","Male-sel.ico");
     wlTb.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone-sel.ico");   
-    wlTb.addButton("tHist",4,"Storio Chiamate","List.ico","List.ico");   
+    wlTb.addButton("tHist",4,"Storio Chiamate","List.ico","List-sel.ico");   
     wlTb.disableItem("tWL");
     wlTb.addSeparator("sep1",5);
     wlTb.addSeparator("sep2",6);
@@ -546,10 +546,10 @@ function dettEdit(winpos) {
     histTb.setIconsPath("../assets/DHTMLX46/icons/");
 
     
-    histTb.addButton("tRet",1,"Lista Detenuti","User group.ico","User group.ico");
-    histTb.addButton("tAna",2,"Anagrafica","Male.ico","Male.ico");
+    histTb.addButton("tRet",1,"Lista Detenuti","User group.ico","User group-sel.ico");
+    histTb.addButton("tAna",2,"Anagrafica","Male.ico","Male-sel.ico");
     histTb.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone-sel.ico");   
-    histTb.addButton("tHist",4,"Storio Chiamate","List.ico","List.ico");   
+    histTb.addButton("tHist",4,"Storio Chiamate","List.ico","List-sel.ico");   
     histTb.disableItem("tHist");
     histTb.addSeparator("sep1",5);
     histTb.addSeparator("sep1",6);
