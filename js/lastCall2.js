@@ -156,8 +156,8 @@ function lastCall2(winpos) {
     
 	histGrid = lc2Layout.cells("a").attachGrid();
 	histGrid.setImagePath("../assets/DHTMLX46/codebase/imgs/");  
-    lc2Grid.setHeader("Ultime chiamate Detenuto,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan"); 
-	histGrid.setHeader("Data/Ora,Numero,Tipo,Ric,Sec,Costo,Descr,Esito");
+    histGrid.setHeader("Ultime chiamate Detenuto,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan"); 
+	histGrid.attachHeader("Data/Ora,Numero,Tipo,Ric,Sec,Costo,Descr,Esito");
 	histGrid.setInitWidths("140,90,60,40,40,50,140,*");
 	histGrid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro");
     histGrid.setColAlign("left,left,left,center,right,right,left,left");

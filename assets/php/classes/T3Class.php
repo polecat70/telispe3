@@ -80,6 +80,8 @@ class t3 {
         ,	"GET_FREE_OP"		=>	"getFreeOp"
         
         ,	"DUP_NUM_OK"		=>	"dupNumOK"
+        
+        ,	"CALL_STATS"		=>	"callStats"
         ];
         
         
@@ -98,7 +100,6 @@ class t3 {
             $rep = ["status" => STATUS_ERROR, "errMsg" => "Action '$action' sconosciuta", "actions" => $poss];
         else {
             $method = $actions[$action];
-            genlog(json_encode($req));
             $rep = $this->$method($req);
         }
 
@@ -234,6 +235,7 @@ class t3 {
 				];
 			}
 		}
+
 		
 		$str   = @file_get_contents('/proc/uptime');
 		$num   = floatval($str);
@@ -273,32 +275,6 @@ class t3 {
 		$memPCT  = $memUsed / $memTot * 100;
 		
 		
-		/// ACTIVE CALLS
-		
-		$creq = $this->fsCommand(["cmd" => "api show calls"]);
-		$cret = $creq["response"];
-		
-		$calls = [];
-		$rn = 0;
-		if(strpos($cret,"uuid")!==false)  {
-			$cRows = explode("\n", $cret);
-			foreach($cRows as $cRow) {
-				$cCols = explode(",", $cRow);
-				if(sizeof($cCols) > 2 ) {
-					if ($rn > 0 ) {
-						$calls[] = [
-							"uuid"	=>	$cCols[0]
-						,	"beg"	=>	$cCols[2]
-						,	"anum"	=>	$cCols[7]
-						,	"bnum"	=>	$cCols[15]
-						];
-					}
-					$rn++;
-				}
-			}
-		}
-		
-		
 		
 		return ([
 			"status"	=> 	STATUS_OK
@@ -317,11 +293,70 @@ class t3 {
 			,	"memFree"	=>	$ds->addUnits($memFree)
 			,	"memPCT"	=>	$memPCT
 			]
-		,	"calls"		=>	$calls
 		]);
 		
 		
     }
+    
+    
+    protected function callStats($req) {
+		
+		
+		$creq = $this->fsCommand(["cmd" => "api show calls"]);
+		$cret = $creq["response"];
+
+		$uidActive = "'zzzz'";		
+		$calls = [];
+		$rn = 0;
+		if(strpos($cret,"uuid")!==false)  {
+			$cRows = explode("\n", $cret);
+			foreach($cRows as $cRow) {
+				$cCols = explode(",", $cRow);
+				if(sizeof($cCols) > 2 ) {
+					if ($rn > 0 ) {
+						$uidActive .= ",'" . $cCols[0] . "'";
+						$calls[] = [
+							"uuid"	=>	$cCols[0]
+						,	"beg"	=>	$cCols[2]
+						,	"anum"	=>	$cCols[7]
+						,	"bnum"	=>	$cCols[15]
+						];
+					}
+					$rn++;
+				}
+			}
+		}
+
+
+
+		$sql = "SELECT 
+			r.uuid
+		,	r.sessDTTM
+		,	r.ext
+		,	c.serial
+		,	CONCAT(d.lname,', ', d.fname) `name`
+		,	r.dialedNum
+		,	CONCAT('[', r.callTip,  '] ',r.descr) descr
+		,	CASE 
+				WHEN r.cause IS NULL THEN '*Attiva'
+				ELSE CONCAT(' ',IF(r.`status` =0, r.totSecs, r.cause)) 
+			END stat
+		FROM callrec r
+		LEFT JOIN card c ON c.cardId = r.cardId
+		LEFT JOIN dett d ON d.dettId = r.dettId
+		LEFT JOIN wl   w ON w.wlId  = r.wlId
+		WHERE r.cause IS NOT NULL
+			OR  r.uuid IN ($uidActive)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10";
+
+		$rows = $this->my->myGetRows($sql);
+		if ($rows=== -1) 
+			return(basicErr($this->my->getLastErr() . "sql: $sql"));
+
+		return(["status" => STATUS_OK, "calls" => $rows]);
+    }
+    
     
     protected function getSpyExt($req) {
 		
@@ -701,8 +736,10 @@ class t3 {
 	}
 
 	protected function checkCardOld($req) {
-//DebugBreak("1@192.168.0.101");
+
+		//DebugBreak("1@192.168.0.101");
 		if (($pin = getVal($req,"pin"))=="")			return(basicErr("No pin supplied!"));
+
 		if (($realpin = getVal($req,"realpin"))=="")	return(basicErr("No realpin supplied!"));		
 		
 		$sql = "SELECT 
@@ -745,7 +782,7 @@ class t3 {
 		
 		if ($rows[0]["dettId"] == "0") {
 			$errData["serial"] = $rows[0]["serial"];
-			$errData["error"] = "Tessera NOn associata";
+			$errData["error"] = "Tessera Non associata";
 			$this->my->doInsert("cardErr", $errData);
 			return(["status" => 9, "playfile" => "CARD_INVALID", "errMsg" => "Tessera non associata a nessuno"]);
 		}
@@ -756,6 +793,14 @@ class t3 {
 			$this->my->doInsert("cardErr", $errData);
 			return(["status" => 9, "playfile" => "CARD_INVALID", "errMsg" => "Errore pin"]);
 		}
+/**		
+		$sql = "SELECT COUNT(*) tot
+				FROM callrec r
+				WHERE r.`status` IS NULL
+				AND TIME_TO_SEC(TIMEDIFF(NOW(),r.sessDTTM)) < 3600
+				AND r.cardId = " . $rows[0]["cardId"];
+**/		
+		$rcs = $this->my->myGetRows($sql);
 		
 		
 		$ret = $this->getDettCredit(["dettId" => $rows[0]["dettId"]]);
@@ -973,8 +1018,7 @@ class t3 {
 
 	protected function wlCheck($req, $dett, $wl) {
 
-		genLog(json_encode($req));
-		// DebugBreak("1@192.168.0.101");
+// DebugBreak("1@192.168.0.101");
 
 		$timeNow =  getTimeInItaly();
 
@@ -1050,7 +1094,6 @@ class t3 {
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		$recoverTime = 0;
-		
 		$attNum = intval($wl["attNum"]);
 		$attWithin = intval($wl["attWithin"]);
 		if ($attNum > 0) {
@@ -1073,16 +1116,11 @@ class t3 {
 					GROUP BY c.dettId 
 					HAVING MIN(IFNULL(c.retryCallId,0)) = 0";
 					
-			genLog($sql);
-			
 			$rows = $this->my->myGetRows($sql);
 			if ($rows==-1) 
 				return(["status" => 9, "playfile" => "SYSTEM_ERROR", "errMsg" => "Looking for old:" . $this->my->getLastErr()]);
 
 			if ($rows!==0) {
-				$rrr = print_r($rows,true);
-				genLog($rrr);
-				
 				$timeLeft = ($maxDur * 60)  - intval($rows[0]["talkedSecs"]);
 				
 				if ($timeLeft >= intval(MIN_RECOVER) 
@@ -1090,10 +1128,7 @@ class t3 {
 					$recoverTime = $timeLeft;
 					$call["retryCallId"] = $rows[0]["recId"];
 				}
-			} else {
-				genLog("No possibility to recover");
-			}
-						
+			}			
 			
 		}
 		
@@ -1284,8 +1319,6 @@ class t3 {
 		$call["secsMax"] = $secsMax;
 
 // DebugBreak("1@192.168.0.101");		
-		genLog(json_encode($call));
-		
 		return([
 			"status" 	=>	STATUS_OK
 		,	"recDir"	=>	BASE_DIR . REC_DIR
@@ -1947,12 +1980,9 @@ class t3 {
 		
 		return($this->fsCommand(["cmd" => "api originate {sip_secure_media=true}user/$ext 'queue_dtmf:w0@500,eavesdrop:$uid inline"]));
 		
-	//	return($this->fsCommand(["cmd" => "api originate {sip_secure_media=true}sofia/gateway/noitel/3932188108 'queue_dtmf:w0@500,eavesdrop:$uid inline"]));
- 
 		// return($this->fsCommand(["cmd" => "api originate user/$ext &eavesdrop($uid)"]));
 		
     }
-    
     
     ///////////////////// CALL HANDLING
     

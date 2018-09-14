@@ -1,0 +1,124 @@
+2018-09-14 06:53:17	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":""}
+2018-09-14 06:53:17	192.168.9.177	**Manca Password
+2018-09-14 06:53:17	192.168.9.177	**ERROR:Manca Password
+2018-09-14 06:53:21	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:05:30	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 07:23:37	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:23:40	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 07:30:40	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 07:32:55	93.48.188.242	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:33:16	93.48.188.242	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:33:40	93.48.188.242	{"action":"GET_DETT_CREDIT","dettId":"1"}
+2018-09-14 07:33:43	93.48.188.242	{"action":"GET_DETT_CREDIT","dettId":"1"}
+2018-09-14 07:37:05	93.48.188.242	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:37:08	93.48.188.242	{"action":"GET_DETT_CREDIT","dettId":"1"}
+2018-09-14 07:38:20	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:38:24	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 07:38:47	93.48.188.242	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:38:50	93.48.188.242	{"action":"GET_DETT_CREDIT","dettId":"1"}
+2018-09-14 07:48:48	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 07:48:52	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 08:53:34	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 08:53:37	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 08:55:44	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 08:55:54	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 08:55:56	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 09:27:40	::1	{"action":"EXT_ENABLED","ext":"301"}
+2018-09-14 09:27:43	::1	{"action":"CHECK_CARD","pin":"NaN","realpin":"undefined"}
+2018-09-14 09:27:43	::1	**ERROR:Tessera non presente in Db
+2018-09-14 09:55:53	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"3"}
+2018-09-14 09:56:00	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"15"}
+2018-09-14 10:00:40	192.168.9.177	{"action":"GET_DETT_CREDIT","dettId":"8"}
+2018-09-14 10:06:36	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 10:16:33	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 10:29:50	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 10:32:11	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 10:33:38	192.168.9.177	{"action":"SAVE_WIN_POS","userId":"1","data":"[{\"id\":\"dettWin\",\"l\":-2,\"t\":0,\"w\":791,\"h\":728},{\"id\":\"lastCallWin2\",\"l\":716,\"t\":3,\"w\":900,\"h\":700}]"}
+2018-09-14 10:33:45	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 11:07:47	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 12:03:53	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 12:08:07	192.168.9.177	{"action":"LOGIN","uid":"admin","pwd":"Passw0rd!"}
+2018-09-14 12:18:34	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:34	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:36	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:37	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:38	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:40	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:40	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:42	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:43	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:44	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:46	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:46	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:48	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:49	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:50	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:52	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:52	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:54	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:55	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:56	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:18:58	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:18:58	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:00	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:01	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:02	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:04	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:04	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:06	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:07	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:08	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:10	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:10	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:12	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:13	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:14	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:16	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:16	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:18	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:19	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:20	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:22	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:22	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:24	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:25	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:26	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:28	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:28	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:30	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:31	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:32	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:34	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:34	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:36	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:37	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:38	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:40	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:40	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:42	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:43	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:44	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:46	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:46	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:48	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:49	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:50	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:52	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:52	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:54	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:55	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:19:56	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:58	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:19:58	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:20:00	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:20:01	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:20:02	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:20:04	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:20:04	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:20:06	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:20:07	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:20:08	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:20:10	93.48.188.242	{"action":"DISK_STATS"}
+2018-09-14 12:20:10	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:20:12	93.48.188.242	**ERROR:Action 'CALL_STATS' sconosciuta
+2018-09-14 12:20:13	93.48.188.242	{"action":"DISK_STATS"}
