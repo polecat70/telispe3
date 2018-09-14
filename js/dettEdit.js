@@ -139,7 +139,7 @@ function dettEdit(winpos) {
 
     anaToolbar.addButton("tRet",1,"Lista Detenuti","User group.ico","User group.ico");
     anaToolbar.addButton("tAna",2,"Anagrafica","Male.ico","Male.ico");
-    anaToolbar.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone.ico");   
+    anaToolbar.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone-sel.ico");   
     anaToolbar.addButton("tHist",4,"Storio Chiamate","List.ico","List.ico");   
     anaToolbar.disableItem("tAna");
        
