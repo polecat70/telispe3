@@ -92,7 +92,7 @@ function lastCall2(winpos) {
     // GRID ////////////////////////////////////////////////////////////////////
     lc2Layout.cells("a").showView("def");
     lc2Grid = lc2Layout.cells("a").attachGrid();
-    lc2Grid.setHeader("Ultime chiamate Detenuto/i,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan");
+    lc2Grid.setHeader("Ultime chiamate Detenuti,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan");
     lc2Grid.attachHeader("Cognome,Nome,Ultima,gg,Oggi,Sett.,Mese");
     // lc2Grid.setColumnIds("serial,pinOrig,pin,dtCreate,notes");
     lc2Grid.attachHeader("#text_filter,#text_filter,#text_filter,#numeric_filter,#text_filter,#text_filter,#text_filter");
@@ -155,7 +155,8 @@ function lastCall2(winpos) {
     });
     
 	histGrid = lc2Layout.cells("a").attachGrid();
-	histGrid.setImagePath("../assets/DHTMLX46/codebase/imgs/");   
+	histGrid.setImagePath("../assets/DHTMLX46/codebase/imgs/");  
+    lc2Grid.setHeader("Ultime chiamate Detenuto,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan"); 
 	histGrid.setHeader("Data/Ora,Numero,Tipo,Ric,Sec,Costo,Descr,Esito");
 	histGrid.setInitWidths("140,90,60,40,40,50,140,*");
 	histGrid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro");
