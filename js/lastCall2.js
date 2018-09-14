@@ -34,7 +34,7 @@ function lastCall2(winpos) {
     lc2Toolbar.setIconsPath("../assets/DHTMLX46/icons/");
 
     lc2Toolbar.addButton("tRef",1,"Aggiorna","reload.png","");
-    lc2Toolbar.addButton("tDet",2,"Tutte le Chiamate","List.ico","");
+    lc2Toolbar.addButton("tDet",2,"Tutte le Chiamate","List.ico","List-sel.ico");
 	lc2Toolbar.addSeparator("sep1",3);
     lc2Toolbar.addButton("tL90",4,"90 gg","Last-call.png","Last-call-sel.png");
     lc2Toolbar.addButton("tL60",5,"60 gg","Last-call.png","Last-call-sel.png");
@@ -69,11 +69,7 @@ function lastCall2(winpos) {
 			case "tDet" :
                 lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=0");
                 break;
-				/*lc2Layout.cells("a").showView("hist");
-				histGrid.clearAndLoad("../cn/dettCallsGrid.php?dettId=" + lc2Grid.getSelectedRowId(),  function(){
-                    histGrid.sortRows(0,"str","des");
-                });
-                break; */
+				
 			
 			case "tXLS" :
 				lc2Grid.toExcel('../assets/DHTMLX46/codebase/grid-excel-php/generate.php');
