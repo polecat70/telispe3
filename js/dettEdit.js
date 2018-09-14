@@ -139,7 +139,7 @@ function dettEdit(winpos) {
 
     anaToolbar.addButton("tRet",1,"Lista Detenuti","User group.ico","User group.ico");
     anaToolbar.addButton("tAna",2,"Anagrafica","Male.ico","Male.ico");
-    anaToolbar.addButton("tWL",3,"Numeri Consentiti","Phone.ico","pdf.png");   
+    anaToolbar.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone-sel.ico");   
     anaToolbar.addButton("tHist",4,"Storio Chiamate","List.ico","List.ico");   
     anaToolbar.disableItem("tAna");
        
@@ -424,7 +424,7 @@ function dettEdit(winpos) {
     
     wlTb.addButton("tRet",1,"Lista Detenuti","User group.ico","User group.ico");
     wlTb.addButton("tAna",2,"Anagrafica","Male.ico","Male.ico");
-    wlTb.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone.ico");   
+    wlTb.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone-sel.ico");   
     wlTb.addButton("tHist",4,"Storio Chiamate","List.ico","List.ico");   
     wlTb.disableItem("tWL");
     wlTb.addSeparator("sep1",5);
@@ -548,7 +548,7 @@ function dettEdit(winpos) {
     
     histTb.addButton("tRet",1,"Lista Detenuti","User group.ico","User group.ico");
     histTb.addButton("tAna",2,"Anagrafica","Male.ico","Male.ico");
-    histTb.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone.ico");   
+    histTb.addButton("tWL",3,"Numeri Consentiti","Phone.ico","Phone-sel.ico");   
     histTb.addButton("tHist",4,"Storio Chiamate","List.ico","List.ico");   
     histTb.disableItem("tHist");
     histTb.addSeparator("sep1",5);
