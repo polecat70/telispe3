@@ -42,7 +42,7 @@ function lastCall2(winpos) {
     lc2Toolbar.addButton("tLXX",7,"Mai","No-call.png","No-call-sel.png");
 	lc2Toolbar.addSeparator("sep1",8);
 	lc2Toolbar.addButton("tXLS",9,"Esporta in Excel","Table2.ico","Table2-sel.ico");   
-	lc2Toolbar.addButton("tPDF",10,"Esporta in PDF","pdf.png","pdf2.png");   
+	lc2Toolbar.addButton("tPDF",10,"Esporta in PDF","pdf.png","pdf.png");   
 
 
         
