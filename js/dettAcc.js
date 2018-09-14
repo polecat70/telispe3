@@ -61,7 +61,7 @@ function dettAcc(winpos) {
     tbs = layMain.cells("a").attachToolbar();
     tbs.setIconsPath("../assets/DHTMLX46/icons/");
 
-	tbs.addButton("tRet",1,"Ritorna A lista","Rewind.ico","");   
+	tbs.addButton("tRet",1,"Ritorna A lista","User group.ico","User group-sel.ico");
 	tbs.addButton("tAdd",2,"Aggiungi Credito","plus.ico","");   
 	// tbs.addButton("tDel",3,"Elimina Credito","minus.ico","");    
     

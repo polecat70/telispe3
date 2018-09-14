@@ -41,8 +41,8 @@ function lastCall2(winpos) {
     lc2Toolbar.addButton("tL30",6,"30 gg","reload.png","pdf.png");
     lc2Toolbar.addButton("tLXX",7,"Mai","reload.png","pdf.png");
 	lc2Toolbar.addSeparator("sep1",8);
-	lc2Toolbar.addButton("tXLS",9,"Esporta in Excel","Table.ico","");   
-	lc2Toolbar.addButton("tPDF",10,"Esporta in PDF","pdf.png","");   
+	lc2Toolbar.addButton("tXLS",9,"Esporta in Excel","Table2.ico","Table2-sel.ico");   
+	lc2Toolbar.addButton("tPDF",10,"Esporta in PDF","pdf.png","pdf2.png");   
 
 
         
@@ -121,9 +121,9 @@ function lastCall2(winpos) {
     histTb = lc2Layout.cells("a").attachToolbar();
     histTb.setIconsPath("../assets/DHTMLX46/icons/");
     histTb.addButton("tRef",1,"Aggiorna","reload.png","");
-	histTb.addButton("tXLS",2,"Esporta in Excel","Table.ico","");   
-	histTb.addButton("tPDF",3,"Esporta in PDF","pdf.png","");   
-    histTb.addButton("tRet",4,"Torna a Lista","User group.ico","");
+	histTb.addButton("tXLS",2,"Esporta in Excel","Table2.ico","Table2-sel.ico");   
+	histTb.addButton("tPDF",3,"Esporta in PDF","pdf.png","pdf2.png");   
+    histTb.addButton("tRet",4,"Torna a Lista","User group.ico","User group-sel.ico");
     
     
     histTb.attachEvent("onClick", function(id) {
