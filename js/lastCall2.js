@@ -35,7 +35,7 @@ function lastCall2(winpos) {
 
     lc2Toolbar.addButton("tRef",1,"Aggiorna","reload.png","");
     lc2Toolbar.addButton("tDet",2,"Tutte le Chiamate","List-sel.ico","List-sel.ico");
-	lc2Toolbar.addSeparator("sep1",3);
+	//lc2Toolbar.addSeparator("sep1",3);
     lc2Toolbar.addButton("tL90",4,"90 gg","Last-call.png","Last-call-sel.png");
     lc2Toolbar.addButton("tL60",5,"60 gg","Last-call.png","Last-call-sel.png");
     lc2Toolbar.addButton("tL30",6,"30 gg","Last-call.png","Last-call-sel.png");
