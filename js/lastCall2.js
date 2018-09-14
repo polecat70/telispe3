@@ -61,7 +61,7 @@ function lastCall2(winpos) {
 				lc2Toolbar.enableItem("tLXX");
                 lc2Toolbar.enableItem("tDet");
                 lc2Toolbar.disableItem(id);
-                if(id="tDet")
+                if(id=="tDet")
                     lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=0");
                 else
 		 		   lc2Grid.clearAndLoad("../cn/lastCallGrid.php?limit=" + id.substr(2,2));
