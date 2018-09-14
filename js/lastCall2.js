@@ -34,15 +34,16 @@ function lastCall2(winpos) {
     lc2Toolbar.setIconsPath("../assets/DHTMLX46/icons/");
 
     lc2Toolbar.addButton("tRef",1,"Aggiorna","reload.png","");
-    lc2Toolbar.addButton("tDet",2,"Tutte le Chiamate","List-sel.ico","List-sel.ico");
-	//lc2Toolbar.addSeparator("sep1",3);
-    lc2Toolbar.addButton("tL90",4,"90 gg","Last-call.png","Last-call-sel.png");
-    lc2Toolbar.addButton("tL60",5,"60 gg","Last-call.png","Last-call-sel.png");
-    lc2Toolbar.addButton("tL30",6,"30 gg","Last-call.png","Last-call-sel.png");
-    lc2Toolbar.addButton("tLXX",7,"Mai","No-call.png","No-call-sel.png");
-	lc2Toolbar.addSeparator("sep1",8);
-	lc2Toolbar.addButton("tXLS",9,"Esporta in Excel","Table.ico","Table-sel.ico");   
-	lc2Toolbar.addButton("tPDF",10,"Esporta in PDF","pdf.png","pdf.png");   
+    lc2Toolbar.addSeparator("sep1",2);
+    lc2Toolbar.addButton("tDet",3,"Tutte le Chiamate","List.ico","List-sel.ico");
+	lc2Toolbar.addSeparator("sep1",4);
+    lc2Toolbar.addButton("tL90",5,"90 gg","Last-call.png","Last-call-sel.png");
+    lc2Toolbar.addButton("tL60",6,"60 gg","Last-call.png","Last-call-sel.png");
+    lc2Toolbar.addButton("tL30",7,"30 gg","Last-call.png","Last-call-sel.png");
+    lc2Toolbar.addButton("tLXX",8,"Mai","No-call.png","No-call-sel.png");
+	lc2Toolbar.addSeparator("sep1",9);
+	lc2Toolbar.addButton("tXLS",10,"Esporta in Excel","Table.ico","Table-sel.ico");   
+	lc2Toolbar.addButton("tPDF",11,"Esporta in PDF","pdf.png","pdf.png");   
 
 
         
