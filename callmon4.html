@@ -285,7 +285,10 @@ $( document ).ready(function() {
 		websocket.send(msg);
 	});
 
-// test();
+	$("#btTest").click(function(){
+		alert("test");
+		websocket.send(JSON.stringify({msg:"DO_TEST"}));		
+	});
 	
 	function setButtons() {
 		
@@ -318,8 +321,9 @@ $( document ).ready(function() {
 			    }
 			});
 			if (uid=="")	return;
-			var rid = dad.attr("rid")
-			alert("uid:" + uid + "\nrid:" + rid);
+
+			uid=uid.substring(5);
+			doOpToDettTrans(uid);
 			
 		});
 		
@@ -345,7 +349,8 @@ $( document ).ready(function() {
 			
 		});
 
-		
+
+
 		$(".btspy").click( function (){
 
 
@@ -505,6 +510,7 @@ $( document ).ready(function() {
 		if ("tmbeg" in msg)			$("." + uidcl).find(".tmbeg").html(msg.tmbeg);
 		if ("opExt" in msg)			$("." + uidcl).attr("opExt",msg.opExt);
 		if ("rid"	in msg)			$("." + uidcl).attr("rid",msg.rid);
+		if ("uiOP"	in msg)			$("." + uidcl).attr("uiOP",msg.uiOP);
 		
 		if ("bgcol" in msg)		{	
 			$("." + uidcl).css("background-color", msg.bgcol);
@@ -563,6 +569,14 @@ $( document ).ready(function() {
 		
 	}
 
+	function doOpToDettTrans(uid) {
+		var msg = {
+			msg		: "OP_TRANS_TO_DET"
+		,	uid		: uid
+		};
+		websocket.send(JSON.stringify(msg));		
+	}
+	
 	
 	function doSpy () {
  
@@ -636,7 +650,7 @@ $( document ).ready(function() {
 <body>
 <div class="top">
 	<div class="stat"></div>
-	<div class="title">Telispe 3 Call Monitor</div>
+	<div class="title">Telispe 3 Call Monitor<button id="btTest">test</button></div>
     <div class="clock"></div>
     <div class="slider">
       <input type="range" id="vol" min="1" max="100" value="50">
