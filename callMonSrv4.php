@@ -21,7 +21,7 @@ define("CORANGE",	"#ff9800");
 
 
 
-define("EVT_REQ", "CHANNEL_ANSWER CHANNEL_BRIDGE CHANNEL_CREATE CHANNEL_HANGUP CHANNEL_HOLD CHANNEL_ORIGINATE CHANNEL_OUTGOING  CHANNEL_PROGRESS");
+define("EVT_REQ", "CHANNEL_ANSWER CHANNEL_BRIDGE CHANNEL_CREATE CHANNEL_HANGUP CHANNEL_HOLD CHANNEL_ORIGINATE");
 
 function dbg($lev, $s) {
 	if ($lev < DBG_LEV)	return;
@@ -37,7 +37,6 @@ class CallMonSrv {
 	private $odCalls = [];
 
 	private $opExt = null;
-	
 	private $tOld = "";	
 	
 	public function mainLoop() {
@@ -50,7 +49,7 @@ class CallMonSrv {
 		
 		if (!($fp = $this->event_socket_create())) 	return(false);
 		fputs($fp, "events json " . EVT_REQ ."\n\n");
-		
+		// fputs($fp, "events json all\n\n");
 		// actual Loop
 		$wild = '{"Event-Name":';
 		
@@ -100,7 +99,7 @@ class CallMonSrv {
 				
 				
 				$found_socket = array_search($socket, $changed);
-				unset($changed[$found_socket]);
+				unset($changed[$found_socket]); 
 			}
 			
 			foreach ($changed as $changed_socket) {	
@@ -119,6 +118,15 @@ class CallMonSrv {
 							$this->fsCommand("api uuid_kill " . $msgIn["uid"]);
 							break;
 
+						case "DO_TEST" :
+							$cmd = "bgapi originate "
+								. "{origination_uuid=DDDD_99b157aa-cab1-4900-bdff-7b32af98793d,opForDet=1,opExt=1000}"
+								. "sofia/gateway/messagenet/0681157710 "
+								. "&bridge({origination_uuid=CCCC_99b157aa-cab1-4900-bdff-7b32af98793d,opForDet=1,opExt=1000}user/1000)";
+							$this->fsCommand($cmd);
+							break;
+							
+							
 						case "SPY" : 
 							$this->fsCommand("bgapi originate {sip_secure_media=true}user/" . $msgIn["ext"] . " &eavesdrop(" . $msgIn["uid"] . ")");
 							// $this->fsCommand("api originate {sip_secure_media=true}sofia/gateway/messagenet/3932188108 &eavesdrop(" . $msgIn["uid"] . ")");
@@ -132,12 +140,34 @@ class CallMonSrv {
 							if ($rows === 0)	return(basicErr("No trunk found!"));
 							$trunk = $rows[0]["trunkStr"];
 							
-							
-							$pars = "{opForDet=1,origUid=" . $msgIn["uid"] . ",opExt=" . $msgIn["opExt"]. "}";							
+							$pars = "opForDet=1"
+								. ",origUid=" . $msgIn["uid"] 
+								. ",opExt=" . $msgIn["opExt"];
 							// bgapi originate {opForDet=1,origUid=cce69c7e-3381-4b8b-9395-820c9b01467b}sofia/gateway/messagenet//0692928424&bridge(/user/1000)
+							$orx = "origination_uuid=" . "DDDD_" . $msgIn["uid"];
+							$oro = "origination_uuid=" . "CCCC_" . $msgIn["uid"];
 							
-							$this->fsCommand("api originate $pars$trunk" . $msgIn["numReq"] . " &bridge($pars" . "user/" . $msgIn["opExt"] . ")"); 
+							$cmd = "bgapi originate {" . $orx . "," . $pars . "}" . $trunk . $msgIn["numReq"] 
+								. " &bridge({" . $oro . "," . $pars . "}user/" . $msgIn["opExt"] . ")";
+							
+							$this->fsCommand($cmd); 
 							break;
+
+						case "OP_TRANS_TO_DET" : 
+						
+							$uid = $msgIn["uid"];
+							
+							$ret = $this->fsCommand("api uuid_transfer $uid park inline");
+							echo "$ret\n";
+							sleep(2);
+							$ret = $this->fsCommand("api uuid_transfer DDDD_$uid park inline");
+							echo "$ret\n";
+							sleep(4);
+							$ret = $this->fsCommand("api uuid_bridge $uid DDDD_$uid");
+							echo "$ret\n";
+							
+							break;
+							
     					
 
 						default :
@@ -162,9 +192,11 @@ class CallMonSrv {
 			
 			if (!feof($fp)) {
 				$buffer = fgets($fp) ; // , 256);
-				if (strlen($buffer) > 0) {
-					if (substr($buffer,0,strlen($wild)) == $wild)  {
-						$buffer = substr($buffer,0,strpos($buffer,"}") + 1);
+				if (strlen($buffer) > 5) {
+					echo "\n==============================================================================\n";
+					echo substr($buffer,0,50) . "\n";
+					if (substr($buffer,0,1) == "{") {
+						// echo "$buffer";
 						$data = json_decode($buffer,true);
 						if(sizeof($data)>0) {
 							$evDett = [ 
@@ -293,16 +325,18 @@ class CallMonSrv {
 			return;
 		}
 
-		if($ed["evt"]=="CHANNEL_ORIGINATE" &&  $ed["ofd"]!="" && !in_array($ed["num"], $this->opExt) ) {
+		if($ed["evt"]=="CHANNEL_ORIGINATE" && substr($ed["uid"],0,5)=="CCCC_" ) {
 			$this->dettThruPOOriginate($ed);
 		//		EVT:CHANNEL_ORIGINATE det: uid:2d6a1ee5-39d6-48bf-a478-d3ba23645730 uia: cid:2d6a1ee5-39d6-48bf-a478-d3ba23645730 oid: stt:CS_INIT ext: num:0692928424 int: opa: ofd:1 cli: rid:xxxx
 			return;	
 		}
-		
-		if($ed["evt"]=="CHANNEL_ANSWER"  && $ed["ofd"]!="" && !in_array($ed["num"], $this->opExt)) {
+
+		if($ed["evt"]=="CHANNEL_ANSWER"  && substr($ed["uid"],0,5)=="DDDD_" ) {
 			$this->dettThruPOConnected($ed);
+			return;
 			// EVT:CHANNEL_ANSWER det: uid:2d6a1ee5-39d6-48bf-a478-d3ba23645730 uia: cid:2d6a1ee5-39d6-48bf-a478-d3ba23645730 oid: stt:CS_CONSUME_MEDIA ext: num:0692928424 int: opa: ofd:1 cli: rid:xxxx
 		}
+		
 		
 		if($ed["evt"]=="CHANNEL_HANGUP"  && $ed["ofd"]!="" ) {
 		// evt:CHANNEL_HANGUP det: uid:a6999c9c-f219-4dd1-a72b-2b9c9d1be86b uia: cid:a6999c9c-f219-4dd1-a72b-2b9c9d1be86b oid:852f9a20-54c3-4296-9a26-c65a4eadba3d stt:CS_EXECUTE ext: num:0692928424 int: opa: ofd:1 cli:
@@ -541,15 +575,16 @@ class CallMonSrv {
 		,	"ctStart"	=>	0
 		]);		
 
-		$this->sendMsg([
-			"evtDescr"	=>	"Hangup Generico"
-		,	"uid"		=>	$ed["oid"]
-		,	"bgcol"		=>	CGREY
-		,	"blink"		=>	0
-		,	"hangup"	=>	1
-		,	"ctStart"	=>	0
-		]);		
-
+		if ($ed["oid"]!="") {
+			$this->sendMsg([
+				"evtDescr"	=>	"Hangup Generico"
+			,	"uid"		=>	$ed["oid"]
+			,	"bgcol"		=>	CGREY
+			,	"blink"		=>	0
+			,	"hangup"	=>	1
+			,	"ctStart"	=>	0
+			]);		
+		}
 
 		if (array_key_exists($ed["uid"], $this->dtCalls))	unset($this->dtCalls[$ed["uid"]]);
 		if (array_key_exists($ed["uid"], $this->opCalls))	unset($this->opCalls[$ed["uid"]]);
@@ -604,12 +639,12 @@ class CallMonSrv {
 				,	"secsGrace"	=>	getVal($cd,"secsGrace",0)
 				,	"secsMax"	=>	getVal($cd,"secsMax",0)
 				,	"opExt"		=>	$ed["num"]
+				,	"uiOP"		=>	$ed["uid"]
 				]);									
 			}
 		}
 		
 	}
-	
 
 	protected function dettThruPOAnswered($ed) {
 		
@@ -627,23 +662,23 @@ class CallMonSrv {
 		]);			
 		
 	} 
+	
 	protected function dettThruPOOriginate($ed) {
+		// evt:CHANNEL_ORIGINATE det: uid:CCCC_2968a80b-3cc5-4a35-871d-f6f1d22b14d5 uia: cid:DDDD_2968a80b-3cc5-4a35-871d-f6f1d22b14d5 oid:DDDD_2968a80b-3cc5-4a35-871d-f6f1d22b14d5 stt:CS_INIT ext: num:1000 int: opa: ofd:1 cli:
+		$callId = substr($ed["uid"],5);
+		$cd = $this->getDetCallDetails($callId);
 
-		$od = $this->odCalls[$ed["rid"]];
 		$this->sendMsg([
 			"evtDescr"	=>	"Operatore chiama per Dett"
-		,	"uid"		=>	$ed["uid"]
+		,	"uid"		=>	$ed["cid"]
 		,	"org"		=>	"Operatore " . $ed["opx"]
-		,	"orgDescr"	=>	"Chiamata via PO"
-		,	"dst"		=>	$ed["num"]
-		,	"dstDescr"	=>	"Richiesto da Detenuto"
+		,	"orgDescr"	=>	$cd["orgDescr"]
+		,	"dst"		=>	$cd["dst"]
+		,	"dstDescr"	=>	$cd["dstDescr"]
 		,	"bgcol"		=>	CYELLOW
 		,	"blink"		=>	1
 		,	"hangup"	=>	0
-		,	"record"	=>	0
-		,	"ofd"		=>	$ed["ofd"]
-		,	"rid"		=>	$ed["rid"]
-		,	"cli"		=>	$ed["cli"]
+		,	"record"	=>	$cd["record"]
 		]);		
 		
 	}	
@@ -657,7 +692,7 @@ class CallMonSrv {
 		// print_r ($this->odCalls[$ed["uia"]]);
 		
 		$this->sendMsg([
-			"evtDescr"	=>	"Detenuto Da PO risposta"
+			"evtDescr"	=>	"Detenuto Da PO per DeTT risposta"
 		,	"uid"		=>	$ed["uid"]
 		,	"bgcol"		=>	CORANGE
 		,	"blink"		=>	0
